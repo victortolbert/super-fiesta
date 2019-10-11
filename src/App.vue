@@ -1,19 +1,17 @@
 <template>
-    <div id="app">
-      <RouterView :programs="$store.state.user.programs" />
-      <app-promo />
-    </div>
+  <router-view :programs="$store.state.user.programs" />
 </template>
 
 <script>
-import users from '@/api/users.json'
-import AppPromo from '@/components/layout/promo'
+import authUser from '../public/authUser.json'
 
 export default {
   name: 'App',
-  components: { AppPromo },
   created () {
-    this.$store.dispatch('initStore', users[0])
+    this.$store.dispatch('initStore', authUser)
+    // fetch('/users.json')
+    //   .then(response => response.json())
+    //   .then(users => (this.users = users))
   }
 }
 </script>

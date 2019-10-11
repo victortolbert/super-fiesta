@@ -1,11 +1,5 @@
 <template>
-  <div>
+  <div id="app-promo">
     Sponsor Promo
   </div>
 </template>
-
-<script>
-export default {
-
-}
-</script>

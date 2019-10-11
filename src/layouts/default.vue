@@ -1,16 +1,25 @@
 <template>
   <div id="app-container" class="flex flex-col">
-    <!-- page-header -->
-    <header>Default Header (Easy Emailer, Edit Profile, Edit Participant)</header>
+    <app-header>
+      <h1>Page Header</h1>
+    </app-header>
+
     <main class="flex-1">
-      <router-view :programs="$store.state.user.programs" />
+      <slot />
     </main>
-    <footer>Default Footer</footer>
+
+    <app-footer>
+      Default Footer
+    </app-footer>
   </div>
 </template>
 
 <script>
+import AppHeader from '@/components/layout/header'
+import AppFooter from '@/components/layout/footer'
+
 export default {
-  name: 'DefaultLayout'
+  name: 'DefaultLayout',
+  components: { AppHeader, AppFooter }
 }
 </script>

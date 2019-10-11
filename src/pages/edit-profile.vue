@@ -1,20 +1,16 @@
 <template>
-  <div id="edit-profile-page">
-    <app-header />
-    <app-nav />
-    <main class="flex-1">
-      Edit Profile
-    </main>
-    <app-footer />
+  <div id="easy-emailer-page">
+    <default-layout>
+        Edit Profile
+    </default-layout>
   </div>
 </template>
 
 <script>
-import AppHeader from '@/components/layout/header'
-import AppFooter from '@/components/layout/footer'
+import DefaultLayout from '@/layouts/default'
 
 export default {
-  name: 'EasyEmailerPage',
+  name: 'EditProfilePage',
   props: {
     programs: {
       type: Array,
@@ -22,8 +18,7 @@ export default {
     }
   },
   components: {
-    AppHeader,
-    AppFooter
+    DefaultLayout
   }
 }
 </script>

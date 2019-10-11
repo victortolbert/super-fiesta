@@ -1,6 +1,7 @@
 <template>
   <header id="app-header">
     <app-nav />
+    <slot />
   </header>
 </template>
 

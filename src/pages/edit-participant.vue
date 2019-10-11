@@ -1,17 +1,13 @@
 <template>
-  <div id="edit-participant-page">
-    <app-header />
-    <app-nav />
-    <main class="flex-1">
-      Edit Participant
-    </main>
-    <app-footer />
+  <div id="easy-emailer-page">
+    <default-layout>
+        Edit Participant
+    </default-layout>
   </div>
 </template>
 
 <script>
-import AppHeader from '@/components/layout/header'
-import AppFooter from '@/components/layout/footer'
+import DefaultLayout from '@/layouts/default'
 
 export default {
   name: 'EditParticipantPage',
@@ -22,8 +18,7 @@ export default {
     }
   },
   components: {
-    AppHeader,
-    AppFooter
+    DefaultLayout
   }
 }
 </script>

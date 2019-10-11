@@ -1,31 +1,20 @@
 <template>
-  <div id="parent-dashboard-page">
-    <app-header />
-    <app-nav />
-    <main class="flex-1">
-      <pre class="text-2xs">
-        {{ programs[0].name }}
-      </pre>
-    </main>
-    <app-footer />
-  </div>
+  <fetch-data url="/authUser.json">
+    <dashboard-layout
+      :programs="$store.state.user.programs"
+      slot-scope="{ programs: programs }"
+    >
+      {{ programs }}
+    </dashboard-layout>
+    </fetch-data>
 </template>
 
 <script>
-import AppHeader from '@/components/layout/header'
-import AppFooter from '@/components/layout/footer'
+import DashboardLayout from '@/layouts/dashboard.vue'
+import FetchData from '@/components/fetch-data.vue'
 
 export default {
   name: 'ParentDashboardPage',
-  props: {
-    programs: {
-      type: Array,
-      default: () => ([])
-    }
-  },
-  components: {
-    AppHeader,
-    AppFooter
-  }
+  components: { DashboardLayout, FetchData }
 }
 </script>

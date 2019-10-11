@@ -1,17 +1,13 @@
 <template>
   <div id="easy-emailer-page">
-    <app-header />
-    <app-nav />
-    <main class="flex-1">
-      Easy easy-emailer
-    </main>
-    <app-footer />
+    <default-layout>
+        Easy Emailer Page
+    </default-layout>
   </div>
 </template>
 
 <script>
-import AppHeader from '@/components/layout/header'
-import AppFooter from '@/components/layout/footer'
+import DefaultLayout from '@/layouts/default'
 
 export default {
   name: 'EasyEmailerPage',
@@ -22,8 +18,7 @@ export default {
     }
   },
   components: {
-    AppHeader,
-    AppFooter
+    DefaultLayout
   }
 }
 </script>
