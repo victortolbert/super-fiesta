@@ -1,7 +1,9 @@
 <template>
   <div id="easy-emailer-page">
     <default-layout>
-        Easy Emailer Page
+        <template v-slot:header>
+          <h1 class="text-2xl font-semibold">Easy Emailer</h1>
+        </template>
     </default-layout>
   </div>
 </template>

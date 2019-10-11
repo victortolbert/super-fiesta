@@ -1,7 +1,9 @@
 <template>
-  <div id="app-container" class="flex flex-col">
-    <app-header>
-      <h1>Page Header</h1>
+  <div id="app-container" class="flex flex-col min-h-screen">
+    <app-header class="p-8 bg-gray-200">
+      <slot name="header">
+          Page Header
+        </slot>
     </app-header>
 
     <main class="flex-1">
@@ -9,7 +11,9 @@
     </main>
 
     <app-footer>
-      Default Footer
+      <slot name="footer">
+        Default Footer
+      </slot>
     </app-footer>
   </div>
 </template>

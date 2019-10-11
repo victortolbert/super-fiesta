@@ -1,7 +1,9 @@
 <template>
   <header id="app-header">
-    <app-nav />
-    <slot />
+    <div class="flex items-center justify-between">
+      <slot />
+      <app-nav />
+    </div>
   </header>
 </template>
 
