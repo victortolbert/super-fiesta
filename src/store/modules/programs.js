@@ -3,7 +3,7 @@ const getters = {
 
   program: (state, getters) => id => {
     return getters.user.programs.find(program => program.id === id)
-  }
+  },
 }
 
 const mutations = {
@@ -12,18 +12,18 @@ const mutations = {
   },
   SET_PROGRAMS: (state, programs) => {
     state.user.programs = programs
-  }
+  },
 }
 
 const actions = {
   initPrograms: ({ commit, getters }) => {
     let programs = []
     commit('SET_PROGRAMS', programs)
-  }
+  },
 }
 
 export default {
   getters,
   mutations,
-  actions
+  actions,
 }

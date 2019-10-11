@@ -7,18 +7,18 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    programs
+    programs,
   },
   state: {
-    user: {}
+    user: {},
   },
   getters: {
-    user: state => state.user
+    user: state => state.user,
   },
   mutations: {
     SET_USER: (state, user) => {
       state.user = user
-    }
+    },
   },
   actions: {
     initStore: ({ state, commit, getters, dispatch }, user) => {
@@ -47,6 +47,6 @@ export default new Vuex.Store({
       user.programs = programs
 
       commit('SET_USER', user)
-    }
-  }
+    },
+  },
 })
