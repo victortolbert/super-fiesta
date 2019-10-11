@@ -3,7 +3,7 @@
     <router-link
       v-for="(navItem, i) in navItems"
       :key="i"
-      class="inline-block mx-2 py-1 px-4 border border-gray-400 rounded shadow hover:bg-blue-200 hover:text-black"
+      class="inline-block mx-2 py-1 px-4 border border-gray-400 rounded shadow bg-white hover:bg-blue-200 hover:text-black"
       :to="navItem.path"
       v-text="navItem.name"
       active-class="bg-blue-400 text-white"
