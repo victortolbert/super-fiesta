@@ -1,5 +1,5 @@
 <template>
-  <footer id="app-footer">
+  <footer class="text-center py-8 bg-gray-100">
     AppFooter
   </footer>
 </template>

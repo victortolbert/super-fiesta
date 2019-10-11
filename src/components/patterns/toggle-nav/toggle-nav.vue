@@ -1,19 +1,18 @@
 <template>
     <a
-        class="menu-sidebar-toggle inline-block"
-        dusk="side-bar-toggle"
+        class="inline-block"
         @click.prevent="toggle"
         @keydown.space.prevent="toggle"
     >
         <FontAwesomeIcon
             v-if="show"
-            :icon="['far', 'times']"
-            class="fa-2x text-white"
+            :icon="['fal', 'times']"
+            class="text-white"
         />
         <FontAwesomeIcon
             v-else
             :icon="['far', 'bars']"
-            class="fa-2x text-white"
+            class="text-white w-5"
         />
     </a>
 </template>
@@ -42,7 +41,7 @@ export default {
     toggle () {
       this.show = !this.show
       this.$emit('toggle', !this.toggled)
-      $('.app-menu-sidebar').toggleClass('is-open')
+      // $('.app-menu-sidebar').toggleClass('is-open')
     }
   }
 }

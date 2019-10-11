@@ -11,7 +11,7 @@ export default new Router({
       path: '/',
       name: 'parent-dashboard',
       props: true,
-      component: () => import(/* webpackChunkName: "parent-dashboard" */ './pages/dashboard/parent.vue')
+      component: () => import(/* webpackChunkName: "parent-dashboard" */ './pages/index.vue')
     },
     {
       path: '/easy-emailer',

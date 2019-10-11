@@ -1,21 +1,24 @@
 <template>
-  <div id="app-container" class="flex flex-col min-h-screen">
-    <app-header class="p-8 bg-gray-200">
-      <slot name="header">
-          Page Header
-        </slot>
-    </app-header>
+  <div id="default-layout" class="flex flex-col min-h-screen">
+      <app-header class="bg-blue-700">
+        <div class="max-w-6xl w-full mx-auto border">
+          <slot name="header">
+            Page Header
+          </slot>
+        </div>
+      </app-header>
 
-    <main class="flex-1">
-      <slot />
-    </main>
+      <main class="flex-1 max-w-6xl w-full mx-auto border">
+        <!-- <ParentDashboardLayout :program="program" /> -->
+        <slot />
+      </main>
 
-    <app-footer>
-      <slot name="footer">
+      <app-footer>
+        <slot name="footer">
         Default Footer
       </slot>
-    </app-footer>
-  </div>
+      </app-footer>
+    </div>
 </template>
 
 <script>
