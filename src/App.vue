@@ -10,14 +10,21 @@
       exact
     />
   <router-view :programs="$store.state.user.programs" />
+  <quickview class="fixed z-40">
+      Is active?
+  </quickview>
   </div>
 </template>
 
 <script>
 import authUser from '../public/authUser.json'
+import Quickview from '@/components/shared/patterns/Quickview'
 
 export default {
   name: 'App',
+  components: {
+    Quickview
+  },
   created () {
     this.$store.dispatch('initStore', authUser)
     // fetch('/users.json')
