@@ -23,6 +23,9 @@ module.exports = {
   chainWebpack: config => {
     // // See https://cli.vuejs.org/guide/css.html#automatic-imports
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+
+    config.resolve.symlinks(false)
+
     types.forEach(type =>
       addStyleResource(
         config.module.rule('stylus').oneOf(type)

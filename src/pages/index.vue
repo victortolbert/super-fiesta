@@ -1,14 +1,14 @@
 <template>
 <div>
-  <fetch-data url="/authUser.json">
-    <dashboard-layout
+  <FetchData url="/authUser.json">
+    <DashboardLayout
       :programs="$store.state.user.programs"
       slot-scope="{ programs: programs }"
     >
       {{ programs }}
-        <base-button ref="button">Button</base-button>
-    </dashboard-layout>
-    </fetch-data>
+        <BaseButton ref="button">Button</BaseButton>
+    </DashboardLayout>
+    </FetchData>
 </div>
 
 </template>

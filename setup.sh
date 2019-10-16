@@ -15,11 +15,11 @@ make_symlink() {
         echo "Skipped $2"
     fi
 }
-make_symlink "../../common/client/components" "src/components/shared"
-make_symlink "../../common/client/filters" "src/filters/shared"
-make_symlink "../../common/client/services" "src/services/shared"
-make_symlink "../../common/client/utilities" "src/utilities/shared"
+make_symlink "../../../common/client/components" "src/components/shared"
+make_symlink "../../../common/client/filters" "src/filters/shared"
+make_symlink "../../../common/client/services" "src/services/shared"
+make_symlink "../../../common/client/utilities" "src/utilities/shared"
 
-make_symlink "../../../common/client/assets/css" "src/assets/css/shared"
-make_symlink "../../../common/client/assets/svg" "src/assets/svg/shared"
-make_symlink "../../../common/client/assets/font" "src/assets/font/shared"
+make_symlink "../../../../common/client/assets/css" "src/assets/css/shared"
+make_symlink "../../../../common/client/assets/svg" "src/assets/svg/shared"
+make_symlink "../../../../common/client/assets/font" "src/assets/font/shared"
