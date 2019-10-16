@@ -7,7 +7,9 @@
     "build": "rimraf ../public/{js,css,img} && vue-cli-service build --no-clean",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -47,7 +49,8 @@
     "sass-loader": "^8.0.0",
     "style-resources-loader": "^1.2.1",
     "tailwindcss": "^1.1.2",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "vuepress": "^1.2.0"
   },
   "eslintConfig": {
     "root": true,
