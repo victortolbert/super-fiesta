@@ -1,4 +1,8 @@
-# titan-client
+# titan-vue-cli
+
+> Example `vue-cli` managed project 
+
+`Route::get('/{any}', 'SpaController@index')->where('any', '^(?!api).*$');`
 
 ## Project setup
 ```
