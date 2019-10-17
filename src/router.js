@@ -28,6 +28,5 @@ export default new Router({
       name: 'edit-profile',
       component: () => import(/* webpackChunkName: "edit-profile" */ './pages/edit-profile.vue'),
     },
-
   ],
 })

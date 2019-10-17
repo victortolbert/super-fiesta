@@ -32,11 +32,10 @@ export default {
       default: false,
     },
   },
-  data () {
-    return {
-      show: false,
-    }
-  },
+  data: () => ({
+    show: false,
+    default: false,
+  }),
   methods: {
     toggle () {
       this.show = !this.show

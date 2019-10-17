@@ -1,4 +1,44 @@
-# titan-client
+# titan-vue-cli
+
+> Example `vue-cli` managed project 
+
+`Route::get('/{any}', 'SpaController@index')->where('any', '^(?!api).*$');`
+
+## ⭐️ Features
+
+###
+
+### jest
+
+### tailwindcss
+
+### vue-cli
+
+### vue-i18n
+
+- 4.9k github stars
+
+### vue-analytics
+
+Why?
+
+The plugin isn't just a wrapper of the Google Analytics API, but provides a solution to issues that most of the time you don't want to deal with or you not even know you have to deal with.
+
+- Automatic Google Analytics script loading
+- Automatic page tracking
+- Event batching
+- Opt-out from Google Analytics with promise support
+- Multiple domain ID tracking system
+- Vuex support
+- E-commerce API
+- Vue error exception tracking system
+- Debugging API
+- 1.5k github stars
+
+### vue-meta
+
+
+## 🚀 Get Started
 
 ## Project setup
 ```

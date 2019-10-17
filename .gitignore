@@ -22,3 +22,9 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+/common
+/src/assets/css/shared
+/src/components/shared
+/src/filters/shared
+/src/utilities/shared

@@ -37,10 +37,8 @@ export default {
       default: 0,
     },
   },
-  data () {
-    return {
-      menuOpened: false,
-    }
-  },
+  data: () => ({
+    menuOpened: false,
+  }),
 }
 </script>
