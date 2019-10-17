@@ -1,29 +1,20 @@
 <template>
-  <div>
-    <fetch-data url="/authUser.json">
-      <dashboard-layout
-        :programs="$store.state.user.programs"
-        slot-scope="{ programs: programs }"
-      >
-        {{ programs }}
-      </dashboard-layout>
-    </fetch-data>
-    <base-button ref="button">Button</base-button>
+  <div class="min-h-screen flex items-center justify-center bg-gray-200">
+    <CorporateMatchThanks />
   </div>
 </template>
 
 <script>
-import DashboardLayout from '@/layouts/dashboard.vue'
-import BaseButton from '@/components/shared/base/BaseButton'
-import FetchData from '@/components/fetch-data.vue'
+import CorporateMatchThanks from '@/components/patterns/CorporateMatchThanks'
 
 export default {
-  name: 'ParentDashboardPage',
-  components: { BaseButton, DashboardLayout, FetchData },
-  mounted () {
-    console.log(this)
-    console.log(this.$el.getBoundingClientRect())
-    this.$el.classList.add('bg-blue-800')
+  name: 'Home',
+  components: {
+    CorporateMatchThanks,
   },
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

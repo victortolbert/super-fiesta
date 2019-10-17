@@ -2,23 +2,23 @@
   <div id="dashboard-layout">
     <div
       v-for="program in programs"
-      :key="program.id"
+      v-bind:key="program.id"
+      v-bind:class="program.microsite.microsite_color_theme.theme_name"
       class="flex flex-col min-h-screen"
-      :class="program.microsite.microsite_color_theme.theme_name"
     >
-      <app-header
-        :program="program"
-        :index="program.id" class="bg-blue-700"
+      <AppHeader
+        v-bind:program="program"
+        v-bind:index="program.id"
+        class="bg-blue-700"
       >
-        <div class="max-w-6xl w-full mx-auto border">
+        <div class="w-full max-w-6xl mx-auto">
           <h1 class="text-2xl font-semibold">
             {{ program.event_name }}
           </h1>
         </div>
+      </AppHeader>
 
-      </app-header>
-
-      <main class="flex-1 max-w-6xl w-full mx-auto border">
+      <main class="flex-1 w-full max-w-6xl mx-auto">
         participant cards<br>
         pledge and share buttons<br>
         program overview<br>
@@ -28,22 +28,28 @@
         <slot />
       </main>
 
-      <app-footer>
+      <AppFooter>
         <slot name="footer">
           Footer
         </slot>
-      </app-footer>
+      </AppFooter>
+      <!-- Portal Outlets (modals, shortcuts) -->
     </div>
   </div>
 </template>
 
 <script>
-import AppHeader from '@/components/layout/header'
-import AppFooter from '@/components/layout/footer'
+import AppHeader from '@/layouts/include/header'
+import AppFooter from '@/layouts/include/footer'
 
 export default {
   name: 'DashboardLayout',
-  props: ['programs'],
   components: { AppFooter, AppHeader },
+  props: {
+    programs: {
+      type: Array,
+      default: () => ([]),
+    },
+  },
 }
 </script>

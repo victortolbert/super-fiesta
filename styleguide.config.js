@@ -1,7 +1,10 @@
 module.exports = {
+  // renderRootJsx: path.join(__dirname, 'config/styleguide.root.js')
+  // require: [path.join(__dirname, 'styleguide/global.requires.js')]
   // set your styleguidist configuration here
-  title: 'Default Style Guide',
-  components: 'src/components/**/[A-Z]*.vue',
+  title: 'Titan Style Guide',
+  components: 'src/components/**/*.vue',
+  ignore: ['**/*.spec.vue', '**/components/Button.vue'],
   defaultExample: true,
   // sections: [
   //   {
@@ -9,7 +12,29 @@ module.exports = {
   //     components: 'src/components/**/[A-Z]*.vue'
   //   }
   // ],
-  // webpackConfig: {
-  //   // custom config goes here
-  // }
+  theme: {
+    color: {
+      link: 'firebrick',
+      linkHover: 'salmon',
+    },
+    fontFamily: {
+      base: '"Operator Mono", "Source Sans Pro", "Comic Sans MS", "Comic Sans", cursive',
+    },
+  },
+  styles: {
+    Logo: {
+      logo: {
+        animation: 'blink ease-in-out 300ms infinite',
+      },
+      '@keyframes blink': {
+        to: { opacity: 0 },
+      },
+    },
+  },
+  webpackConfig: {
+    // custom config goes here
+    resolve: {
+      symlinks: true,
+    },
+  },
 }

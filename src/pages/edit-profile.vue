@@ -1,10 +1,12 @@
 <template>
   <div id="easy-emailer-page">
-    <default-layout>
-        <template v-slot:header>
-          <h1 class="text-2xl font-semibold">Edit Profile</h1>
-        </template>
-    </default-layout>
+    <DefaultLayout>
+      <template v-slot:header>
+        <h1 class="text-2xl font-semibold">
+          Edit Profile
+        </h1>
+      </template>
+    </DefaultLayout>
   </div>
 </template>
 
@@ -13,14 +15,14 @@ import DefaultLayout from '@/layouts/default'
 
 export default {
   name: 'EditProfilePage',
+  components: {
+    DefaultLayout,
+  },
   props: {
     programs: {
       type: Array,
       default: () => ([]),
     },
-  },
-  components: {
-    DefaultLayout,
   },
 }
 </script>

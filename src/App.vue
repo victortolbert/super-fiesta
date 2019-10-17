@@ -2,17 +2,17 @@
   <div>
     <router-link
       v-for="(navItem, i) in navItems"
-      :key="i"
+      v-bind:key="i"
       class=""
-      :to="navItem.path"
-      v-text="navItem.name"
+      v-bind:to="navItem.path"
       active-class=""
       exact
+      v-text="navItem.name"
     />
-    <router-view :programs="$store.state.user.programs" />
-    <quickview class="fixed z-40">
+    <router-view v-bind:programs="$store.state.user.programs" />
+    <Quickview class="fixed z-40">
       Is active?
-    </quickview>
+    </Quickview>
   </div>
 </template>
 
@@ -24,12 +24,6 @@ export default {
   name: 'App',
   components: {
     Quickview,
-  },
-  created () {
-    this.$store.dispatch('initStore', authUser)
-    // fetch('/users.json')
-    //   .then(response => response.json())
-    //   .then(users => (this.users = users))
   },
   data: () => ({
     isOpen: true,
@@ -52,5 +46,11 @@ export default {
       },
     ],
   }),
+  created () {
+    this.$store.dispatch('initStore', authUser)
+    // fetch('/users.json')
+    //   .then(response => response.json())
+    //   .then(users => (this.users = users))
+  },
 }
 </script>
