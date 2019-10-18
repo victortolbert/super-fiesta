@@ -39,8 +39,8 @@
 </template>
 
 <script>
-import AppHeader from '@/layouts/include/header'
-import AppFooter from '@/layouts/include/footer'
+import AppHeader from '@/layouts/include/AppHeader'
+import AppFooter from '@/layouts/include/AppFooter'
 
 export default {
   name: 'DashboardLayout',

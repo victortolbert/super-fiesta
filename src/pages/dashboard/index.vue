@@ -9,9 +9,9 @@
         <BaseButton ref="button">
           Button
         </BaseButton>
-        <AppButton ref="button">
+        <!-- <AppButton ref="button">
           Button
-        </AppButton>
+        </AppButton> -->
       </DashboardLayout>
     </FetchData>
   </div>
@@ -19,13 +19,15 @@
 
 <script>
 import DashboardLayout from '@/layouts/dashboard.vue'
-import AppButton from '@/components/AppButton'
+// import AppButton from '@/components/AppButton'
 import BaseButton from '@/components/shared/base/BaseButton'
-import FetchData from '@/components/fetch-data.vue'
+import FetchData from '@/components/FetchData'
 
 export default {
   name: 'ParentDashboardPage',
-  components: { AppButton, BaseButton, DashboardLayout, FetchData },
+  components: {
+    // AppButton,
+    BaseButton, DashboardLayout, FetchData },
   mounted () {
     // console.log(this)
     // console.log(this.$el.getBoundingClientRect())

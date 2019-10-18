@@ -5,10 +5,11 @@ import axios from 'axios'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import WebFontLoader from '@/utilities/shared/webFontLoader' // eslint-disable-line no-unused-vars
+import ProgressBar from './components/ProgressBar'
+import WebFontLoader from '@/utilities/shared/webFontLoader'
 
 // bootstrap app
-import '@/plugins'
+import '@/plugins' // eslint-disable-line no-unused-vars
 // import '@/components'
 // import '@/filters'
 // import '@/mixins'
@@ -33,6 +34,9 @@ if (token) {
 }
 
 Vue.config.productionTip = false
+
+const bar = Vue.prototype.$bar = new Vue(ProgressBar).$mount()
+document.body.appendChild(bar.$el)
 
 new Vue({
   router,

@@ -6,7 +6,7 @@ const webpack = require('webpack')
 module.exports = {
   // proxy API requests to Valet during development
   // devServer: {
-  //     proxy: 'http://laracon.test'
+  //   proxy: 'http://titan.test',
   // },
   // assetsDir: 'assets',
 

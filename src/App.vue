@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AppNavbar />
     <router-link
       v-for="(navItem, i) in navItems"
       v-bind:key="i"
@@ -18,11 +19,13 @@
 
 <script>
 import authUser from '../public/authUser.json'
+import AppNavbar from '@/layouts/include/AppNavbar'
 import Quickview from '@/components/shared/patterns/Quickview'
 
 export default {
   name: 'App',
   components: {
+    AppNavbar,
     Quickview,
   },
   data: () => ({
@@ -30,7 +33,19 @@ export default {
     navItems: [
       {
         path: '/',
+        name: 'Home',
+      },
+      {
+        path: '/dashboard',
         name: 'Parent Dashboard',
+      },
+      {
+        path: '/dashboard/public',
+        name: 'Public Dashboard',
+      },
+      {
+        path: '/dashboard/teacher',
+        name: 'Teacher Dashboard',
       },
       {
         path: '/easy-emailer',
