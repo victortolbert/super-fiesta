@@ -32,6 +32,7 @@ module.exports = {
       )
     )
   },
+
   configureWebpack: {
     plugins: [
       new webpack.DefinePlugin({
@@ -43,6 +44,21 @@ module.exports = {
         // src folder alias
         '@': path.resolve(src),
       },
+    },
+  },
+
+  pluginOptions: {
+    i18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
+      enableInSFC: true,
+    },
+    'style-resources-loader': {
+      preProcessor: 'scss',
+      patterns: [
+        path.resolve(__dirname, 'src/assets/css/shared/abstracts/*.scss'),
+      ],
     },
   },
 }

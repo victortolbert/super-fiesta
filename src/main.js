@@ -1,12 +1,19 @@
 import Vue from 'vue'
 import lodash from 'lodash'
+import upperFirst from 'lodash/upperFirst'
+import camelCase from 'lodash/camelCase'
+
 import axios from 'axios'
 
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import i18n from './i18n'
+
 import ProgressBar from './components/ProgressBar'
 import WebFontLoader from '@/utilities/shared/webFontLoader'
+
+import 'nprogress/nprogress.css'
 
 // bootstrap app
 import '@/plugins' // eslint-disable-line no-unused-vars
@@ -38,8 +45,24 @@ Vue.config.productionTip = false
 const bar = Vue.prototype.$bar = new Vue(ProgressBar).$mount()
 document.body.appendChild(bar.$el)
 
+// const requireComponent = require.context(
+//   './components',
+//   false,
+//   /Base[A-Z]\w+\.(vue|js)$/
+// )
+
+// requireComponent.keys().forEach(fileName => {
+//   const componentConfig = requireComponent(fileName)
+
+//   const componentName = upperFirst(
+//     camelCase(fileName.replace(/^\.\/(.*)\.\w+$/, '$1'))
+//   )
+//   Vue.component(componentName, componentConfig.default || componentConfig)
+// })
+
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App),
 }).$mount('#app')

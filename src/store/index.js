@@ -7,6 +7,8 @@ import classroomModule from '@/store/modules/classroom';
 import pledgeModule from '@/store/modules/pledge';
 import micrositeModule from '@/store/modules/microsite';
 import itemModule from '@/store/modules/item';
+import * as event from '@/store/modules/event';
+import * as notification from '@/store/modules/notification';
 
 Vue.use(Vuex);
 
@@ -19,6 +21,8 @@ const store = new Vuex.Store({
     pledge: pledgeModule,
     microsite: micrositeModule,
     item: itemModule,
+    event,
+    notification,
   },
   state: {
     lang: Object,

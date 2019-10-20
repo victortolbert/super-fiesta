@@ -7,18 +7,26 @@
     <p class="mb-16 text-lg text-center">
       Your pledge helps <em>Avery</em> raise funds for the <em>TJ Johnson Fun Run!</em>
     </p>
-
     <h2 class="mb-8 font-semibold text-xl text-center">
       Search below to see if your company will match your pledge!
     </h2>
+    <div class="rounded-full h-16 w-16 flex items-center justify-center bg-blue-200">
+      Circle
+    </div>
 
-    <div class="max-w-md mx-auto">
-      <ol class="mb-8 text-lg list-decimal list-inside">
-        <li class="mb-2" style="text-indent: -1rem">
-          Submit your company’s matching gift as a brand new pledge!
+    <div class="max-w-lg mx-auto">
+      <ol class="mb-8 text-lg">
+        <li>
+          <h2 class="flex markdown">
+            <span class="text-sm bg-blue-200 text-blue-700 h-6 w-6 font-bold rounded-full inline-flex justify-center items-center mt-px mr-3">1</span>
+            Submit your company’s matching gift as a brand new pledge!
+          </h2>
         </li>
-        <li style="text-indent: -1rem">
-          Select <span class="font-semibold">Corporate Matching Gift</span> as the Sponsor Type for the new pledge
+        <li>
+          <h2 class="flex markdown">
+            <span class="text-sm bg-blue-200 text-blue-700 h-6 w-6 font-bold rounded-full inline-flex justify-center items-center mt-px mr-3">2</span>
+            <span>Select <span class="font-semibold">Corporate Matching Gift</span> as the Sponsor Type for the new pledge</span>
+          </h2>
         </li>
       </ol>
     </div>

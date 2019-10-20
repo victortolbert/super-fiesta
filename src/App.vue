@@ -4,7 +4,7 @@
     <router-link
       v-for="(navItem, i) in navItems"
       v-bind:key="i"
-      class=""
+      class="bg-blue-500"
       v-bind:to="navItem.path"
       active-class=""
       exact
@@ -69,3 +69,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" src="./assets/css/main.scss">

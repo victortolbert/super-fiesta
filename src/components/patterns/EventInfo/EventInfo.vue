@@ -34,3 +34,14 @@ export default {
   },
 }
 </script>
+
+<docs>
+Don't forget that you can debug it with [vue-devtools](https://github.com/vuejs/vue-devtools)
+
+```js
+    <EventInfo
+      v-bind:funrun-date="new Date()"
+      class="hidden lg:flex"
+    />
+```
+</docs>
