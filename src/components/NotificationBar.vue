@@ -1,5 +1,5 @@
 <template>
-  <div class="notification-bar" v-bind:class="notificationTypeClass">
+  <div class="notification-bar" :class="notificationTypeClass">
     <p>{{ notification.message }}</p>
   </div>
 </template>

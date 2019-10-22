@@ -4,10 +4,10 @@
       Real World Events
     </router-link>
     <nav>
-      <router-link v-bind:to="{ name: 'event-list' }">
+      <router-link :to="{ name: 'event-list' }">
         List
       </router-link> |
-      <router-link v-bind:to="{ name: 'event-create' }">
+      <router-link :to="{ name: 'event-create' }">
         Create
       </router-link>
     </nav>

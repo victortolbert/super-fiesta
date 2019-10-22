@@ -1,4 +1,20 @@
 {
     "hello": "Hello, guy!",
-    "message": "hsgsdgello i18n !!"
+    "message": "hsgsdgello i18n !!",
+    "share_pledge_page": "Share pledge page",
+    "every_share_can": "Share pledge page",
+    "view": "View",
+    "rewards": "Rewards",
+    "close": "Close",
+    "participant_card": {
+        "edit_profile_link": "Edit",
+        "awaiting_confirmation": "Awaiting Confirmation",
+        "total_pledged": "Total Pledged",
+        "of": "of"
+    },
+    "status": {
+        "pending": "Pending"
+    },
+    "delivered": "Delivered",
+    "giveaway": "Coming Your Way"
 }

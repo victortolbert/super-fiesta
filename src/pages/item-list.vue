@@ -3,8 +3,8 @@
     <div class="item-list">
       <Item
         v-for="item in $store.getters.displayItems"
-        v-bind:key="item.id"
-        v-bind:item="item"
+        :key="item.id"
+        :item="item"
       />
     </div>
   </div>

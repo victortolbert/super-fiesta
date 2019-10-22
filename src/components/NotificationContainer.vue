@@ -2,8 +2,8 @@
   <div class="notification-container">
     <NotificationBar
       v-for="notification in notifications"
-      v-bind:key="notification.id"
-      v-bind:notification="notification"
+      :key="notification.id"
+      :notification="notification"
     />
   </div>
 </template>

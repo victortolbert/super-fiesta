@@ -1,11 +1,11 @@
 <template>
   <div
     class="progress"
-    v-bind:class="{
+    :class="{
       hidden: hidden,
       error: error
     }"
-    v-bind:style="{
+    :style="{
       'width': `${percent}%`
     }"
   />

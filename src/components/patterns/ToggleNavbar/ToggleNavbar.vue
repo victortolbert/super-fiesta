@@ -1,17 +1,17 @@
 <template>
   <a
     class="inline-block"
-    v-on:click.prevent="toggle"
-    v-on:keydown.space.prevent="toggle"
+    @click.prevent="toggle"
+    @keydown.space.prevent="toggle"
   >
     <FontAwesomeIcon
       v-if="show"
-      v-bind:icon="['fal', 'times']"
+      :icon="['fal', 'times']"
       class="text-white"
     />
     <FontAwesomeIcon
       v-else
-      v-bind:icon="['far', 'bars']"
+      :icon="['far', 'bars']"
       class="text-white w-5"
     />
   </a>

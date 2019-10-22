@@ -4,7 +4,7 @@
       v-on="$listeners"
       v-bind="$attrs"
       class="button"
-      v-bind:class="buttonClass"
+      :class="buttonClass"
     >
       <slot />
     </button>

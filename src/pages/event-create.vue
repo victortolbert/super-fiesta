@@ -1,13 +1,13 @@
 <template>
   <div>
     <h1>Create an Event</h1>
-    <form v-on:submit.prevent="createEvent">
+    <form @submit.prevent="createEvent">
       <BaseSelect
         label="Select a category"
-        v-bind:options="categories"
+        :options="categories"
         v-model="event.category"
-        v-bind:class="{ error: $v.event.category.$error }"
-        v-on:blur="$v.event.category.$touch()"
+        :class="{ error: $v.event.category.$error }"
+        @blur="$v.event.category.$touch()"
       />
       <template v-if="$v.event.category.$error">
         <p v-if="!$v.event.category.required" class="errorMessage">
@@ -22,8 +22,8 @@
         type="text"
         placeholder="Title"
         class="field"
-        v-bind:class="{ error: $v.event.title.$error }"
-        v-on:blur="$v.event.title.$touch()"
+        :class="{ error: $v.event.title.$error }"
+        @blur="$v.event.title.$touch()"
       />
 
       <template v-if="$v.event.title.$error">
@@ -38,8 +38,8 @@
         type="text"
         placeholder="Description"
         class="field"
-        v-bind:class="{ error: $v.event.description.$error }"
-        v-on:blur="$v.event.description.$touch()"
+        :class="{ error: $v.event.description.$error }"
+        @blur="$v.event.description.$touch()"
       />
 
       <template v-if="$v.event.description.$error">
@@ -55,8 +55,8 @@
         type="text"
         placeholder="Location"
         class="field"
-        v-bind:class="{ error: $v.event.location.$error }"
-        v-on:blur="$v.event.location.$touch()"
+        :class="{ error: $v.event.location.$error }"
+        @blur="$v.event.location.$touch()"
       />
 
       <template v-if="$v.event.location.$error">
@@ -72,8 +72,8 @@
         <Datepicker
           v-model="event.date"
           placeholder="Select a date"
-          v-bind:input-class="{ error: $v.event.date.$error }"
-          v-on:opened="$v.event.date.$touch()"
+          :input-class="{ error: $v.event.date.$error }"
+          @opened="$v.event.date.$touch()"
         />
       </div>
 
@@ -85,11 +85,11 @@
 
       <BaseSelect
         label="Select a time"
-        v-bind:options="times"
+        :options="times"
         v-model="event.time"
         class="field"
-        v-bind:class="{ error: $v.event.time.$error }"
-        v-on:blur="$v.event.time.$touch()"
+        :class="{ error: $v.event.time.$error }"
+        @blur="$v.event.time.$touch()"
       />
 
       <template v-if="$v.event.time.$error">
@@ -98,7 +98,7 @@
         </p>
       </template>
 
-      <BaseButton type="submit" button-class="-fill-gradient" v-bind:disabled="$v.$anyError">
+      <BaseButton type="submit" button-class="-fill-gradient" :disabled="$v.$anyError">
         Submit
       </BaseButton>
       <p v-if="$v.$anyError" class="errorMessage">

@@ -2,7 +2,7 @@
   <li class="news-item">
     <span class="score">{{ item.score }}</span>
     <span class="title">
-      <a v-bind:href="item.url" target="_blank" rel="noopener">{{ item.title }}</a>
+      <a :href="item.url" target="_blank" rel="noopener">{{ item.title }}</a>
       <span class="host"> ({{ item.url }})</span>
     </span>
     <br>

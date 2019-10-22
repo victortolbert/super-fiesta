@@ -1,7 +1,7 @@
 <template>
   <div class="bg-gray-200 p-8 text-right max-w-xs mx-auto" style="min-height: 480px;">
     <div id="dropdown" class="relative inline-block">
-      <button v-on:click="toggle" class="inline-flex items-center pl-6 pr-2 py-2 font-semibold text-white bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:bg-gray-700">
+      <button @click="toggle" class="inline-flex items-center pl-6 pr-2 py-2 font-semibold text-white bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:bg-gray-700">
         Account
         <svg class="ml-2 h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
           <path d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z" />

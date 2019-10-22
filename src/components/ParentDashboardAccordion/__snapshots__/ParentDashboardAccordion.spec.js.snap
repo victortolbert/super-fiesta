@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ParentDashboardAccordion it renders correctly 1`] = `
+<div class="parent-dashboard-accordion">
+  <bcollapse-stub animation="fade" ariaid="" class="card">
+    <programoverview-stub program="[object Object]"></programoverview-stub>
+  </bcollapse-stub>
+  <bcollapse-stub animation="fade" ariaid="" class="card">
+    <schoolgoalandstats-stub program="[object Object]"></schoolgoalandstats-stub>
+  </bcollapse-stub>
+  <bcollapse-stub animation="fade" ariaid="" class="card">
+    <howtogetpledges-stub program="[object Object]"></howtogetpledges-stub>
+  </bcollapse-stub>
+  <bcollapse-stub animation="fade" ariaid="" class="card">
+    <studentstarvideo-stub program="[object Object]" videoid="279542990"></studentstarvideo-stub>
+  </bcollapse-stub>
+  <bcollapse-stub animation="fade" ariaid="" class="card">
+    <pledgeinfo-stub program="[object Object]"></pledgeinfo-stub>
+  </bcollapse-stub>
+  <bcollapse-stub animation="fade" ariaid="" class="card">
+    <businessleaderboard-stub program="[object Object]"></businessleaderboard-stub>
+  </bcollapse-stub>
+</div>
+`;

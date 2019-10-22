@@ -54,8 +54,8 @@ module.exports = {
     'vue/no-v-html': 'off',
     'vue/require-valid-default-prop': 'off',
     'vue/return-in-computed-property': 'off',
-    'vue/v-bind-style': ['error', 'longform'],
-    'vue/v-on-style': ['error', 'longform'],
+    'vue/v-bind-style': ['error', 'shorthand'],
+    'vue/v-on-style': ['error', 'shorthand'],
   },
   'parserOptions': {
     'parser': 'babel-eslint',

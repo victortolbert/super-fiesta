@@ -18,8 +18,8 @@ import 'nprogress/nprogress.css'
 // bootstrap app
 import '@/plugins' // eslint-disable-line no-unused-vars
 // import '@/components'
-// import '@/filters'
-// import '@/mixins'
+import '@/filters'
+import '@/mixins'
 // import '@/utilities'
 
 try {
@@ -59,6 +59,8 @@ document.body.appendChild(bar.$el)
 //   )
 //   Vue.component(componentName, componentConfig.default || componentConfig)
 // })
+
+Vue.prototype.$axios = axios
 
 new Vue({
   router,

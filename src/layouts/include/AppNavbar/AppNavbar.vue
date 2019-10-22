@@ -3,8 +3,8 @@
     <nav>
       <router-link
         v-for="(navItem, i) in navItems"
-        v-bind:key="i"
-        v-bind:to="navItem.path"
+        :key="i"
+        :to="navItem.path"
         class="block w-full py-4 px-8 text-black hover:bg-blue-100"
         active-class=""
         exact
@@ -15,23 +15,23 @@
         <button
           type="button"
           class="block text-gray-500 hover:text-white focus:text-white focus:outline-none"
-          v-on:click="isOpen = !isOpen"
+          @click="isOpen = !isOpen"
         >
           <font-awesome-icon
             v-if="isOpen"
-            v-bind:icon="['fal', 'times']"
+            :icon="['fal', 'times']"
             class="text-white"
           />
           <font-awesome-icon
             v-if="!isOpen"
-            v-bind:icon="['far', 'bars']"
+            :icon="['far', 'bars']"
             class="w-5 text-white"
           />
         </button>
       </div>
     </nav>
     <nav
-      v-bind:class="isOpen ? 'block' : 'hidden'"
+      :class="isOpen ? 'block' : 'hidden'"
       class="sm:block"
     >
       <div class="sm:flex px-2 pt-2 pb-4 sm:p-0">
@@ -69,7 +69,7 @@
           <a
             class="mt-2 block text-gray-400 hover:text-white"
             href="#"
-            v-on:click.prevent="logout"
+            @click.prevent="logout"
           >Sign out</a>
         </div>
       </div>

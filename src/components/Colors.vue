@@ -2,13 +2,13 @@
   <div class="colors">
     <div
       v-for="(color, i) in colors"
-      v-bind:key="i"
+      :key="i"
       class="color"
     >
       <div
         v-for="n in 9"
-        v-bind:key="n"
-        v-bind:class="['swatch', `${color}-${n}00`]"
+        :key="n"
+        :class="['swatch', `${color}-${n}00`]"
       >
         {{ color }}
       </div>

@@ -2,16 +2,15 @@
   <div id="dashboard-layout">
     <div
       v-for="program in programs"
-      v-bind:key="program.id"
-      v-bind:class="program.microsite.microsite_color_theme.theme_name"
+      :key="program.id"
+      :class="program.microsite.microsite_color_theme.theme_name"
       class="flex flex-col min-h-screen"
     >
       <AppHeader
-        v-bind:program="program"
-        v-bind:index="program.id"
-        class="bg-blue-700"
+        :program="program"
+        :index="program.id"
       >
-        <div class="w-full max-w-6xl mx-auto">
+        <div class="w-full">
           <h1 class="text-2xl font-semibold">
             {{ program.event_name }}
           </h1>
@@ -19,12 +18,9 @@
       </AppHeader>
 
       <main class="flex-1 w-full max-w-6xl mx-auto">
-        participant cards<br>
-        pledge and share buttons<br>
-        program overview<br>
-        school goal and stats<br>
-        business leaderboard<br>
-        <!-- <parent-dashboard-layout :program="program" /> -->
+        <ParentDashboardLayout
+          :program="program"
+        />
         <slot />
       </main>
 
@@ -41,10 +37,11 @@
 <script>
 import AppHeader from '@/layouts/include/AppHeader'
 import AppFooter from '@/layouts/include/AppFooter'
+import ParentDashboardLayout from '@/components/ParentDashboardLayout'
 
 export default {
   name: 'DashboardLayout',
-  components: { AppFooter, AppHeader },
+  components: { AppFooter, AppHeader, ParentDashboardLayout },
   props: {
     programs: {
       type: Array,

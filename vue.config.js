@@ -43,9 +43,12 @@ module.exports = {
       alias: {
         // src folder alias
         '@': path.resolve(src),
+        vue$: 'vue/dist/vue.esm.js',
       },
     },
   },
+
+  runtimeCompiler: true,
 
   pluginOptions: {
     i18n: {

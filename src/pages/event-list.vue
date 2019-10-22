@@ -3,12 +3,12 @@
     <h1>Events for {{ user.user.name }}</h1>
     <EventCard
       v-for="event in event.events"
-      v-bind:key="event.id"
-      v-bind:event="event"
+      :key="event.id"
+      :event="event"
     />
     <template v-if="page != 1">
       <RouterLink
-        v-bind:to="{ name: 'event-list', query: { page: page - 1 } }"
+        :to="{ name: 'event-list', query: { page: page - 1 } }"
         rel="prev"
       >
         Prev Page
@@ -19,7 +19,7 @@
     </template>
     <RouterLink
       v-if="hasNextPage"
-      v-bind:to="{ name: 'event-list', query: { page: page + 1 } }"
+      :to="{ name: 'event-list', query: { page: page + 1 } }"
       rel="next"
     >
       Next Page

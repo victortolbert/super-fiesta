@@ -1,33 +1,43 @@
 <template>
   <div>
-    <FetchData url="/authUser.json">
-      <DashboardLayout
-        slot-scope="{ programs: programs }"
-        v-bind:programs="$store.state.user.programs"
-      >
-        {{ programs }}
-        <BaseButton ref="button">
-          Button
-        </BaseButton>
-        <!-- <AppButton ref="button">
-          Button
-        </AppButton> -->
-      </DashboardLayout>
-    </FetchData>
+    <div
+      v-for="program in $store.state.program.programs"
+      :key="program.id"
+      :class="program.microsite.microsite_color_theme.theme_name"
+      class="flex flex-col min-h-screen"
+    >
+      <AppHeader class="mb-8">
+        {{ program.event_name }}
+      </AppHeader>
+      <main class="flex-1 w-full max-w-6xl mx-auto">
+        <ParentDashboardLayout
+          :program="program"
+        />
+      </main>
+    </div>
+    <!-- slot-scope="{ programs: programs }" -->
+    <!-- <pre>{{ programs }}</pre> -->
+    <!-- <DashboardLayout :programs="$store.state.program.programs" /> -->
   </div>
 </template>
 
 <script>
-import DashboardLayout from '@/layouts/dashboard.vue'
+// import DashboardLayout from '@/layouts/dashboard2.vue'
+import AppHeader from '@/layouts/include/AppHeader/AppHeader4.vue'
+import ParentDashboardLayout from '@/components/ParentDashboardLayout'
+
 // import AppButton from '@/components/AppButton'
-import BaseButton from '@/components/shared/base/BaseButton'
-import FetchData from '@/components/FetchData'
+// import BaseButton from '@/components/shared/base/BaseButton'
 
 export default {
   name: 'ParentDashboardPage',
   components: {
     // AppButton,
-    BaseButton, DashboardLayout, FetchData },
+    AppHeader,
+    ParentDashboardLayout,
+    // BaseButton,
+    // DashboardLayout,
+  },
   mounted () {
     // console.log(this)
     // console.log(this.$el.getBoundingClientRect())
