@@ -28,6 +28,7 @@
     "nprogress": "0.2.0",
     "portal-vue": "^2.1.6",
     "register-service-worker": "^1.6.2",
+    "splitpanes": "2.0.0",
     "tiptap": "^1.26.4",
     "tiptap-extensions": "^1.28.4",
     "v-click-outside": "^2.1.4",

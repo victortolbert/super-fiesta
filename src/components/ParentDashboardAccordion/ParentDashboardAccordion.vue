@@ -9,12 +9,12 @@
       <div
         slot="trigger"
         slot-scope="props"
-        class="flex justify-between py-4 px-4 md:px-8 shadow-none"
+        class="flex justify-between py-4 px-4 md:px-8 shadow-none cursor-pointer"
       >
-        <p class="text-2xl lg:text-3xl font-semibold">
+        <p class="text-2xl lg:text-3xl text-gray-800 font-semibold">
           <span class="title_selector">{{ item.title }}</span>
         </p>
-        <a class="card-header-icon text-grey-dark">
+        <a class="card-header-icon text-gray-800">
           <FontAwesomeIcon :icon="props.open ? 'chevron-up' : 'chevron-down'" />
         </a>
       </div>

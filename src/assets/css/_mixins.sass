@@ -158,6 +158,13 @@
 %arrow
   +arrow
 
+=block($spacing: $block-spacing)
+  &:not(:last-child)
+    margin-bottom: 0
+
+%block
+  +block
+
 =loader
   animation: spinAround 500ms infinite linear
   border: 2px solid $grey-lighter

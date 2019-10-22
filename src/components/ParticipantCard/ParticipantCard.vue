@@ -1,9 +1,9 @@
 <template>
-  <div class="participant-card max-w-3xl m-4">
+  <div class="participant-card max-w-5xl m-4">
     <div>
       <div class="media mb-2 lg:px-4 relative flex justify-between">
         <div class="media-left mr-2">
-          <a :href="editProfileLink">
+          <a class="focus:outline-none focus:shadow-outline overflow-hidden" :href="editProfileLink">
             <AvatarImage
               :alt="participant.first_name"
               :src="avatarSrc"

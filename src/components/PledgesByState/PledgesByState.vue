@@ -80,7 +80,7 @@ export default {
   }),
   computed: {
     classrooms () {
-      return uniqBy(flatMap(this.program.participants, participant => {
+      return uniqBy(flatMap(this.$store.state.participant.participants, participant => {
         let classroom = participant.participant_info.classroom;
         return classroom;
       }), 'id').sort((a, b) => a.name > b.name ? 1 : -1);
@@ -88,15 +88,17 @@ export default {
     myPledgedStates () {
       let includedStatuses = [2, 3, 8];
       return uniq(
-        this.program.participants
+        this.$store.state.participant.participants
           .flatMap(participant => participant.participant_info.pledges)
           .filter(pledge => includedStatuses.includes(pledge.pledge_status_id))
           .map(pledge => pledge.pledge_sponsor.state)
       );
     },
     myPledgedCountries () {
+      console.log(this.$store.state.participant.participants)
+
       return uniq(
-        flatMap(this.program.participants, participant => {
+        flatMap(this.$store.state.participant.participants, participant => {
           return flatMap(participant.participant_info.pledges, pledges => {
             if (pledges.pledge_sponsor.country_entity) {
               return pledges.pledge_sponsor.country_entity.name;

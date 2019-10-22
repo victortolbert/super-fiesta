@@ -5,12 +5,12 @@
         v-if="show"
         class="py-8"
       >
-        <a
-          class="text-2xl text-black float-right"
+        <button
+          class="text-2xl w-8 h-8 text-black float-right cursor-pointer focus:outline-none focus: shadow-outline"
           @click="toggleRewards(participant.id)"
         >
           <i class="fal fa-times" />
-        </a>
+        </button>
         <h1 class="text-2xl font-bold">
           {{ lang.rewards }}
         </h1>

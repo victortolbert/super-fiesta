@@ -7,6 +7,7 @@
       class="flex flex-col min-h-screen"
     >
       <AppHeader class="mb-8">
+        <a :name="program.event_name" />
         {{ program.event_name }}
       </AppHeader>
       <main class="flex-1 w-full max-w-6xl mx-auto">
@@ -14,6 +15,7 @@
           :program="program"
         />
       </main>
+      <AppFooter />
     </div>
     <!-- slot-scope="{ programs: programs }" -->
     <!-- <pre>{{ programs }}</pre> -->
@@ -24,6 +26,7 @@
 <script>
 // import DashboardLayout from '@/layouts/dashboard2.vue'
 import AppHeader from '@/layouts/include/AppHeader/AppHeader4.vue'
+import AppFooter from '@/layouts/include/AppFooter'
 import ParentDashboardLayout from '@/components/ParentDashboardLayout'
 
 // import AppButton from '@/components/AppButton'
@@ -34,6 +37,7 @@ export default {
   components: {
     // AppButton,
     AppHeader,
+    AppFooter,
     ParentDashboardLayout,
     // BaseButton,
     // DashboardLayout,

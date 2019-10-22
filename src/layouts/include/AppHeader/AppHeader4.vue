@@ -8,7 +8,110 @@
             <slot />
           </h1>
           <div class="">
-            <button v-show="!isOpen" ref="openButton" @click="open" type="button" class="block text-blue-100 focus:outline-none focus:text-white" aria-label="Menu">
+
+            <div id="dropdown" class="relative inline-block">
+              <!-- <button @click="toggle" class="inline-flex items-center pl-6 pr-2 py-2 font-semibold text-blue-100 focus:outline-none focus:text-white">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 6C3 5.44772 3.44772 5 4 5H20C20.5523 5 21 5.44772 21 6C21 6.55228 20.5523 7 20 7H4C3.44772 7 3 6.55228 3 6Z" />
+                  <path d="M3 12C3 11.4477 3.44772 11 4 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H4C3.44772 13 3 12.5523 3 12Z" />
+                  <path d="M4 17C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17H4Z" />
+                </svg>
+              </button> -->
+              <button v-show="!isOpen" ref="openButton" @click="toggle" type="button" class="block text-blue-100 focus:outline-none focus:text-white" aria-label="Menu">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 6C3 5.44772 3.44772 5 4 5H20C20.5523 5 21 5.44772 21 6C21 6.55228 20.5523 7 20 7H4C3.44772 7 3 6.55228 3 6Z" />
+                  <path d="M3 12C3 11.4477 3.44772 11 4 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H4C3.44772 13 3 12.5523 3 12Z" />
+                  <path d="M4 17C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17H4Z" />
+                </svg>
+              </button>
+              <button v-show="isOpen" ref="closeButton" @click="toggle" type="button" class="text-blue-100 focus:outline-none focus:text-white" aria-label="Close">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.2929 19.7071C18.6834 20.0976 19.3166 20.0976 19.7071 19.7071C20.0976 19.3166 20.0976 18.6834 19.7071 18.2929L13.4142 12L19.7071 5.70711C20.0976 5.31658 20.0976 4.68342 19.7071 4.29289C19.3166 3.90237 18.6834 3.90237 18.2929 4.29289L12 10.5858L5.70711 4.29289C5.31658 3.90237 4.68342 3.90237 4.29289 4.29289C3.90237 4.68342 3.90237 5.31658 4.29289 5.70711L10.5858 12L4.29289 18.2929C3.90237 18.6834 3.90237 19.3166 4.29289 19.7071C4.68342 20.0976 5.31658 20.0976 5.70711 19.7071L12 13.4142L18.2929 19.7071Z" />
+                </svg>
+              </button>
+
+              <!-- Dropdown Menu -->
+              <div class="hidden">
+                <!-- overlay -->
+                <transition
+                  enter-class="opacity-0"
+                  enter-active-class="ease-out transition-medium"
+                  enter-to-class="opacity-100"
+                  leave-class="opacity-100"
+                  leave-active-class="ease-out transition-medium"
+                  leave-to-class="opacity-0"
+                  appear
+                >
+                  <div v-show="isOpen" class="z-10 fixed inset-0 transition-opacity">
+                    <div @click="close" class="absolute inset-0 bg-black opacity-50" tabindex="-1" />
+                  </div>
+                </transition>
+
+                <transition
+                  enter-class="opacity-0 scale-90"
+                  enter-active-class="ease-out transition-fastest"
+                  enter-to-class="opacity-100 scale-100"
+                  leave-class="opacity-100 scale-100"
+                  leave-active-class="ease-in transition-fastest"
+                  leave-to-class="opacity-0 scale-90"
+                >
+                  <div v-if="isOpen" class="z-50 absolute right-0 origin-top-right" style="top: 4rem">
+                    <div class="w-64 text-left bg-white rounded-lg shadow-lg">
+                      <div class="border-t-8 border-blue-600">
+                        <div class="px-6 py-3 text-blue-600 font-bold leading-tight bg-gray-300">
+                          Thomas Jefferson Elementary Fun Fun
+                        </div>
+                        <router-link
+                          to="/dashboard"
+                          active-class="is-active"
+                          exact
+                          class="block px-6 py-3 text-blue-800 leading-tight hover:bg-gray-200"
+                        >Home</router-link>
+                        <router-link
+                          to="/easy-emailer"
+                          active-class="is-active"
+                          exact
+                          class="block px-6 py-3 text-blue-800 leading-tight hover:bg-gray-200"
+                        >Easy Emailer</router-link>
+                        <a href="#" class="block px-6 py-3 text-blue-800 leading-tight hover:bg-gray-200">Finish Line</a>
+                      </div>
+                      <div class="border-t-8 border-blue-600">
+                        <div class="px-6 py-3 text-blue-600 font-bold leading-tight bg-gray-300">
+                          Simpson Middle School Fun Run
+                        </div>
+                        <router-link
+                          to="/dashboard"
+                          active-class="is-active"
+                          exact
+                          class="block px-6 py-3 text-blue-800 leading-tight hover:bg-gray-200"
+                        >Home</router-link>
+                        <router-link
+                          to="/easy-emailer"
+                          active-class="is-active"
+                          exact
+                          class="block px-6 py-3 text-blue-800 leading-tight hover:bg-gray-200"
+                        >Easy Emailer</router-link>
+                        <a href="#" class="block px-6 py-3 text-blue-800 leading-tight hover:bg-gray-200">Finish Line</a>
+                      </div>
+                      <div class="border-t-8 border-blue-600">
+                        <div class="px-6 py-3 text-blue-600 font-bold leading-tight bg-gray-300">
+                          My Settings
+                        </div>
+                        <a href="#" class="block px-6 py-3 text-blue-800 leading-tight hover:bg-gray-200">Admin Dashboard</a>
+                        <a href="#" class="block px-6 py-3 text-blue-800 leading-tight hover:bg-gray-200">Register Student</a>
+                        <a href="#" class="block px-6 py-3 text-blue-800 leading-tight hover:bg-gray-200">Register Teacher</a>
+                        <a href="#" class="block px-6 py-3 text-blue-800 leading-tight hover:bg-gray-200">My Profile</a>
+                        <a href="#" class="block px-6 py-3 text-blue-800 leading-tight hover:bg-gray-200">Help Center</a>
+                        <a href="#" class="block px-6 py-3 text-blue-800 leading-tight hover:bg-gray-200">Logout</a>
+                      </div>
+                    </div>
+                  </div>
+                </transition>
+              </div>
+
+            </div>
+
+            <!-- <button v-show="!isOpen" ref="openButton" @click="open" type="button" class="block text-blue-100 focus:outline-none focus:text-white" aria-label="Menu">
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M3 6C3 5.44772 3.44772 5 4 5H20C20.5523 5 21 5.44772 21 6C21 6.55228 20.5523 7 20 7H4C3.44772 7 3 6.55228 3 6Z" />
                 <path d="M3 12C3 11.4477 3.44772 11 4 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H4C3.44772 13 3 12.5523 3 12Z" />
@@ -19,13 +122,26 @@
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18.2929 19.7071C18.6834 20.0976 19.3166 20.0976 19.7071 19.7071C20.0976 19.3166 20.0976 18.6834 19.7071 18.2929L13.4142 12L19.7071 5.70711C20.0976 5.31658 20.0976 4.68342 19.7071 4.29289C19.3166 3.90237 18.6834 3.90237 18.2929 4.29289L12 10.5858L5.70711 4.29289C5.31658 3.90237 4.68342 3.90237 4.29289 4.29289C3.90237 4.68342 3.90237 5.31658 4.29289 5.70711L10.5858 12L4.29289 18.2929C3.90237 18.6834 3.90237 19.3166 4.29289 19.7071C4.68342 20.0976 5.31658 20.0976 5.70711 19.7071L12 13.4142L18.2929 19.7071Z" />
               </svg>
-            </button>
+            </button> -->
           </div>
         </nav>
       </div>
 
-      <!-- Menu -->
+      <!-- Off-canvas Menu -->
       <div class="">
+        <transition
+          enter-class="opacity-0"
+          enter-active-class="ease-out transition-medium"
+          enter-to-class="opacity-100"
+          leave-class="opacity-100"
+          leave-active-class="ease-out transition-medium"
+          leave-to-class="opacity-0"
+          appear
+        >
+          <div v-show="isOpen" class="z-10 fixed inset-0 transition-opacity">
+            <div @click="close" class="absolute inset-0 bg-black opacity-50" tabindex="-1" />
+          </div>
+        </transition>
         <!-- Off-canvas menu -->
         <transition
           enter-class="translate-x-full"
@@ -43,24 +159,27 @@
             class="z-10 fixed inset-y-0 right-0 max-w-xs mt-1 w-full bg-white transition-transform overflow-y-auto shadow-lg"
           >
             <div class="relative z-10 bg-white">
-              <div class="">
-                <a href="#" class="block m-0 p-4 font-bold border-t-8 bg-gray-300 text-blue-500 border-blue-600">Thomas Jefferson Elementary Fun Run</a>
+              <div
+                v-for="program in $store.state.program.programs"
+                :key="program.id"
+                :class="program.microsite.microsite_color_theme.theme_name"
+              >
+                <a :href="`#${program.event_name}`" class="block m-0 p-4 font-bold border-t-8 bg-gray-300 text-blue-600 border-blue-600">{{ program.event_name }}</a>
                 <router-link
-                  v-for="(navItem, i) in navItems"
-                  :key="i"
-                  class="block m-0 p-4 font-medium text-gray-500 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100"
-                  :to="navItem.path"
-                  active-class=""
+                  class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100"
+                  to="/dashboard"
+                  active-class="is-active"
                   exact
-                  v-text="navItem.name"
-                />
-                <a href="#" class="block m-0 p-4 font-bold border-t-8 bg-gray-300 text-blue-500 border-blue-600">Middle School</a>
+                >Home</router-link>
               </div>
             </div>
-            <div class="relative bg-white">
-              <div class="px-4 pt-4 pb-6">
-                <a href="#" class="block font-medium text-gray-900 hover:text-gray-700">Log in</a>
-              </div>
+            <div class="relative z-10 bg-white">
+              <a href="#" class="block m-0 p-4 font-bold border-t-8 bg-gray-300 text-blue-600 border-blue-600">My Settings</a>
+              <a href="#" class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100">Register Student</a>
+              <a href="#" class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100">Register Teacher</a>
+              <a href="#" class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100">My Profile (titan)</a>
+              <a href="#" class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100">Help Center</a>
+              <a href="#" class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100">Logout</a>
             </div>
           </div>
         </transition>
@@ -71,6 +190,7 @@
 
 <script>
 export default {
+  name: 'AppHeader4',
   props: {
     program: {
       type: Object,
@@ -82,6 +202,7 @@ export default {
   data: function () {
     return {
       isOpen: false,
+      isDropdownOpen: false,
       navItems: [
         {
           path: '/',
@@ -139,6 +260,9 @@ export default {
         this.$refs.openButton.focus()
       })
     },
+    toggle() {
+      this.isOpen = !this.isOpen
+    },
   },
 }
 </script>
@@ -148,5 +272,8 @@ export default {
   background-image:
     linear-gradient(rgba(2, 127, 215, 0.9), rgba(2, 8, 138, 0.8)),
     url('/assets/img/header_bg.jpg')
+}
+.is-active {
+  @apply underline text-blue-600 font-bold
 }
 </style>

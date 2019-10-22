@@ -92,6 +92,11 @@ export default new Router({
       props: true,
     },
     {
+      path: '/split-panes',
+      name: 'split-panes',
+      component: () => import(/* webpackChunkName: "split-panes" */ './pages/split-panes.vue'),
+    },
+    {
       path: '/network-issue',
       name: 'network-issue',
       component: () => import(/* webpackChunkName: "network-issue" */ './pages/network-issue.vue'),

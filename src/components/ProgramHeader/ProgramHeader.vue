@@ -32,7 +32,7 @@ export default {
   props: {
     program: {
       type: Object,
-      default: null,
+      default: () => ({}),
     },
   },
   computed: {
@@ -43,6 +43,9 @@ export default {
       // return `https://${this.$store.state.s3Bucket}.s3.amazonaws.com/program_logos/${this.program.microsite.school_image_name}`
       return `/v3-assets/dashboard/images/${this.program.microsite.school_image_name}`
     },
+  },
+  mounted() {
+    console.log(this.program)
   },
 }
 </script>

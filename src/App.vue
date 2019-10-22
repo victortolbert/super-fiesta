@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import authUser from '../public/v3/api/auth/user.json'
+import authUser from '../public/v3/api/auth/user2.json'
 // import AppNavbar from '@/layouts/include/AppNavbar'
 import Quickview from '@/components/shared/patterns/Quickview'
 

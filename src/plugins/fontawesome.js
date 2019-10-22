@@ -1,26 +1,149 @@
-import Vue from 'vue'
+import Vue from 'vue';
 
-import { config, library, dom } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome'
+import { library, dom } from '@fortawesome/fontawesome-svg-core';
 
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { far } from '@fortawesome/pro-regular-svg-icons'
-import { fal } from '@fortawesome/pro-light-svg-icons'
-import { fas } from '@fortawesome/free-solid-svg-icons'
+// Brands (fab)
+import { faFacebook, faFacebookF, faFacebookSquare, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
-// This is important, we are going to let Nuxt.js worry about the CSS
-config.autoAddCss = false
+// Regular (far)
+import {
+  faAddressCard,
+  faArrowCircleRight,
+  faBars as farBars,
+  faCircle,
+  faCommentAltLines,
+  faEdit,
+  faEnvelope,
+  faInfoCircle,
+  faLock,
+  faSignIn,
+  faSignOut,
+  faSquare,
+  faTimes as farTimes,
+  faUserEdit as farUserEdit,
+} from '@fortawesome/pro-regular-svg-icons';
 
-// You can add your icons directly in this plugin. See other examples for how you
-// can add other styles or just individual icons.
-library.add(fab, far, fal, fas)
+// Light (fal)
+import { faBars, faTimes, faUserEdit } from '@fortawesome/pro-light-svg-icons';
 
-// library.add(
-//   faUser, faLock, faSignOutAlt, faCog, faArrowLeft, faGithub
-// )
+// Solid Style Icons (fas)
+import {
+  faBars as fasBars,
+  faBell,
+  faBold,
+  faCaretDown,
+  faCaretUp,
+  faCheck,
+  faCheckSquare,
+  faChevronDown,
+  faChevronUp,
+  faChevronLeft,
+  faChevronRight,
+  faCircle as fasCircle,
+  faCode,
+  faCoffee,
+  faCog,
+  faComment,
+  faEdit as fasEdit,
+  faEnvelope as fasEnvelope,
+  faExclamationCircle,
+  faExclamationTriangle,
+  faEye,
+  faItalic,
+  faLink,
+  faListOl,
+  faListUl,
+  faLock as fasLock,
+  faMobileAlt,
+  faParagraph,
+  faPlayCircle,
+  faQuestionCircle,
+  faQuoteRight,
+  faShare,
+  faShareSquare,
+  faSortDown,
+  faSpinner,
+  faStrikethrough,
+  faTimes as fasTimes,
+  faTrashAlt,
+  faUnderline,
+  faUser,
+  faUserPlus,
+} from '@fortawesome/free-solid-svg-icons';
 
-dom.watch()
+import {
+  FontAwesomeIcon,
+  FontAwesomeLayers,
+  FontAwesomeLayersText,
+} from '@fortawesome/vue-fontawesome';
 
-Vue.component('FontAwesomeIcon', FontAwesomeIcon)
-Vue.component('FontAwesomeLayers', FontAwesomeLayers)
-Vue.component('FontAwesomeLayersText', FontAwesomeLayersText)
+library.add(
+  faAddressCard,
+  faArrowCircleRight,
+  faBars,
+  faBell,
+  faBold,
+  faCaretDown,
+  faCaretUp,
+  faCheck,
+  faCheckSquare,
+  faChevronDown,
+  faChevronUp,
+  faChevronLeft,
+  faChevronRight,
+  faCircle,
+  faCode,
+  faCoffee,
+  faCog,
+  faComment,
+  faCommentAltLines,
+  faEdit,
+  fasEdit,
+  faEnvelope,
+  faExclamationCircle,
+  faExclamationTriangle,
+  faEye,
+  faFacebook,
+  faFacebookF,
+  faFacebookSquare,
+  faInfoCircle,
+  faItalic,
+  faLink,
+  faListOl,
+  faListUl,
+  faLock,
+  faMobileAlt,
+  faParagraph,
+  faPlayCircle,
+  faQuestionCircle,
+  faQuoteRight,
+  farBars,
+  farTimes,
+  fasBars,
+  fasCircle,
+  fasEnvelope,
+  faShare,
+  faShareSquare,
+  faSignIn,
+  faSignOut,
+  fasLock,
+  faSortDown,
+  faSpinner,
+  faSquare,
+  fasTimes,
+  faStrikethrough,
+  faTimes,
+  faTrashAlt,
+  faTwitter,
+  faUnderline,
+  faUser,
+  faUserEdit,
+  faUserPlus,
+  farUserEdit
+);
+
+dom.watch();
+
+Vue.component('FontAwesomeIcon', FontAwesomeIcon);
+Vue.component('FontAwesomeLayers', FontAwesomeLayers);
+Vue.component('FontAwesomeLayersText', FontAwesomeLayersText);

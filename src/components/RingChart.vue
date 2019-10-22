@@ -67,7 +67,8 @@ export default {
 }
 
 .circular-chart .circle {
-  stroke: $secondary;
+  stroke: var(--color-secondary)
+  // $secondary;
 }
 
 .percentage {

@@ -49,7 +49,8 @@ const store = new Vuex.Store({
     },
   },
   getters: {
-    avatarPath: state => `https://${state.s3Bucket}.s3.amazonaws.com/${state.avatarPath}`,
+    // avatarPath: state => `https://${state.s3Bucket}.s3.amazonaws.com/${state.avatarPath}`,
+    avatarPath: state => `/v3-assets/dashboard/images/`,
 
     contacts: state => state.contacts,
   },

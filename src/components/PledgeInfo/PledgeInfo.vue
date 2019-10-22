@@ -3,7 +3,7 @@
     <div class="flex items-center justify-center mb-8">
       <button
         :disabled="hasPaidAllPledges"
-        class="button font-semibold is-medium is-primary is-rounded w-333px"
+        class="w-full max-w-xs py-2 font-semibold bg-green-600 text-white rounded-full focus:outline-none focus:shadow-outline"
         @click.prevent="payPledges"
       >
         {{ $t('pledge_info.pay_pledges') }}
