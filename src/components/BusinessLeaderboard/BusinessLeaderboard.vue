@@ -55,6 +55,8 @@
 </template>
 
 <script>
+import data from '../../../public/v3/api/business-leaderboard-pledges.json';
+
 export default {
   name: 'BusinessLeaderboard',
   status: 'prototype',
@@ -82,14 +84,15 @@ export default {
   created() {
     // let url = `/v3/api/business-leaderboard-pledges/${this.program.id}`
     let url = `http://localhost:8080/v3/api/business-leaderboard-pledges.json`
-    this.$axios.get(url)
-      .then((response) => {
-        console.log(response.data)
-        this.sponsors = response.data
-      }).catch((error) => {
-        // eslint-disable-next-line
-        console.error(error)
-      })
+    // this.$axios.get(url)
+    //   .then((response) => {
+    //     console.log(response.data)
+    //     this.sponsors = response.data
+    //   }).catch((error) => {
+    //     // eslint-disable-next-line
+    //     console.error(error)
+    //   })
+    this.sponsors = data;
   },
   methods: {
     toggle() {

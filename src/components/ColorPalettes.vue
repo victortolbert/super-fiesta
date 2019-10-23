@@ -1,8 +1,5 @@
 <template>
   <div class="md-16">
-    <h2 class="text-2xl font-semibold">
-      Tailwind Color Palette
-    </h2>
     <div class="mb-8">
       <h3 class="text-xl">
         Blues

@@ -1,10 +1,10 @@
 <template>
-  <div class="max-w-4xl mx-auto justify-between">
+  <div class="flex max-w-4xl mx-auto justify-between">
     <div>
       <span>{{ $t('event_info.event_date') }}</span> <b>{{ eventDate }}</b>
     </div>
     <div>
-      <b>{{ daysRemaining }}</b> {{ 'event_info.days_remaining' }}
+      <b>{{ daysRemaining }}</b> {{ $t('event_info.days_remaining') }}
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
   props: {
     funrunDate: {
       type: Date,
-      default: () => (new Date()),
+      default: () => (new Date('2020-01-01')),
     },
   },
   computed: {

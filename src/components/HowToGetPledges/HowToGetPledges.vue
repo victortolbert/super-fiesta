@@ -115,6 +115,7 @@
 <script>
 import PhoneScriptModal from '@/components/PhoneScriptModal'
 import VideoIframe from '@/components/VideoIframe'
+import data from '../../../public/v3/api/videos/get-pledges.json';
 
 export default {
   name: 'HowToGetPledges',
@@ -140,6 +141,7 @@ export default {
     },
     firstParticipantId() {
       return this.$store.state.participant.participants[0].id
+      // return this.$store.getters.participantsByProgramId(this.program.id)[0].id;
     },
   },
   created() {
@@ -162,13 +164,14 @@ export default {
 
     fetchVideos(videoMetadata) {
       // let url = '/v3/api/videos/get-pledges/' + this.program.id
-      let url = `/v3/api/videos/get-pledges.json`
-      this.$axios.get(url).then((response) => {
-        this.video = response.data
-      }).catch((error) => {
-        // eslint-disable-next-line
-        console.error(error)
-      })
+      // let url = `/v3/api/videos/get-pledges.json`
+      // this.$axios.get(url).then((response) => {
+      //   this.video = response.data
+      // }).catch((error) => {
+      //   // eslint-disable-next-line
+      //   console.error(error)
+      // })
+      this.video = data
     },
     openPhoneScript(evt) {
       this.$modal.open({

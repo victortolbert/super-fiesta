@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'Icon',
+  name: 'BaseIcon',
   props: {
     name: {
       type: String,

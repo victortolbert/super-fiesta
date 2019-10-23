@@ -3,6 +3,14 @@ import VueI18n from 'vue-i18n'
 import store from '../src/store'
 import i18n from '../src/i18n'
 import axios from 'axios'
+import authUser from '../public/v3/api/auth/user2.json'
+
+// bootstrap app
+import '../src/plugins' // eslint-disable-line no-unused-vars
+// import '../src/components'
+import '../src/filters'
+import '../src/mixins'
+// import '../src/utilities'
 
 Vue.use(VueI18n)
 
@@ -27,6 +35,9 @@ Vue.mixin({
         },
       ],
     }
+  },
+  mounted () {
+    this.$store.dispatch('initStore', authUser)
   },
 })
 

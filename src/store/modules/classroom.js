@@ -32,18 +32,18 @@ const mutations = {
 
 const actions = {
   initClassrooms: ({ getters, commit }) => {
-    let currentClassrooms = [];
+    // let currentClassrooms = [];
+    // getters.programs.forEach(program => {
+    //   debugger
+    //   program.classrooms.forEach(programClassroom => {
+    //     let classroomCheck = currentClassrooms.find(classroom => classroom.id === programClassroom.id);
+    //     if (classroomCheck === undefined) {
+    //       currentClassrooms.push(programClassroom);
+    //     }
+    //   });
+    // });
 
-    getters.programs.forEach(program => {
-      program.classrooms.forEach(programClassroom => {
-        let classroomCheck = currentClassrooms.find(classroom => classroom.id === programClassroom.id);
-        if (classroomCheck === undefined) {
-          currentClassrooms.push(programClassroom);
-        }
-      });
-    });
-
-    commit('SET_CLASSROOMS', currentClassrooms);
+    commit('SET_CLASSROOMS', []);
   },
 };
 

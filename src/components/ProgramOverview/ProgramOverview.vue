@@ -73,7 +73,7 @@ export default {
   },
   methods: {
     fetchVideos(videoMetadata) {
-      const videos = axios.get(videoMetadata.url).then((response) => {
+      const videos = this.$axios.get(videoMetadata.url).then((response) => {
         if (response.data.length > 0) {
           this.videoCollections.push({
             videos: response.data,
