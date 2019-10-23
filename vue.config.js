@@ -1,13 +1,14 @@
 // "use strict"
-const path = require('path')
+const { resolve, dirname } = require('path')
 const src = './src/'
 const webpack = require('webpack')
 
 module.exports = {
   // proxy API requests to Valet during development
-  // devServer: {
-  //   proxy: 'http://titan.test',
-  // },
+  devServer: {
+    // proxy: 'http://titan.test',
+    proxy: 'http://localhost:8080',
+  },
   // assetsDir: 'assets',
 
   // output built static files to Laravel's public dir.
@@ -31,6 +32,27 @@ module.exports = {
         config.module.rule('stylus').oneOf(type)
       )
     )
+
+    // When using lerna and simlinks,
+    // mode some modules that should be ignored are not
+    // we add them here to avoid errors
+    const vueBrowserCompilerPath = resolve(
+      dirname(require.resolve('vue-inbrowser-compiler')),
+      '../'
+    )
+
+    const eslintRule = config.module.rule('eslint')
+    if (eslintRule) {
+      const vsgPath = resolve(dirname(require.resolve('vue-styleguidist')), '../')
+
+      eslintRule.exclude.add(vsgPath)
+      eslintRule.exclude.add(vueBrowserCompilerPath)
+    }
+
+    const jsRule = config.module.rule('js')
+    if (jsRule) {
+      jsRule.exclude.add(vueBrowserCompilerPath)
+    }
   },
 
   configureWebpack: {
@@ -42,7 +64,7 @@ module.exports = {
     resolve: {
       alias: {
         // src folder alias
-        '@': path.resolve(src),
+        '@': resolve(src),
         vue$: 'vue/dist/vue.esm.js',
       },
     },
@@ -60,7 +82,7 @@ module.exports = {
     'style-resources-loader': {
       preProcessor: 'scss',
       patterns: [
-        path.resolve(__dirname, 'src/assets/css/shared/abstracts/*.scss'),
+        resolve(__dirname, 'src/assets/css/shared/abstracts/*.scss'),
       ],
     },
   },
@@ -73,9 +95,9 @@ function addStyleResource (rule) {
     .loader('style-resources-loader')
     .options({
       patterns: [
-        path.resolve(__dirname, src + 'styles/global/mixins.styl'), // or styles/global/mixins/*.styl
-        path.resolve(__dirname, src + 'styles/global/variables.styl'),
-        path.resolve(__dirname, src + 'styles/global/functions.styl'),
+        resolve(__dirname, src + 'styles/global/mixins.styl'), // or styles/global/mixins/*.styl
+        resolve(__dirname, src + 'styles/global/variables.styl'),
+        resolve(__dirname, src + 'styles/global/functions.styl'),
       ],
     })
 }

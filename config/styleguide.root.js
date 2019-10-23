@@ -1,9 +1,42 @@
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
 import store from '../src/store'
+import i18n from '../src/i18n'
+import axios from 'axios'
+
+Vue.use(VueI18n)
+
+Vue.mixin({
+  data() {
+    return {
+      colorDemo: 'blue',
+      sizeDemo: 'large',
+      sponsors: [
+        {
+          'program_id': 1,
+          'business_name': 'Wolff, Williamson and Witting',
+          'business_website': 'http://www.gibson.com/',
+          'comment': 'Quo et perferendis suscipit modi accusantium.',
+          'pledge_type_id': 2,
+          'show_comment': 1,
+          'laps': 0,
+          'amount': '2.00',
+          'total_est': '150.00',
+          'hasPendingPayment': false,
+          'online_pending_payments': [],
+        },
+      ],
+    }
+  },
+})
+
+Vue.prototype.$axios = axios
 
 export default previewComponent => {
   // https://vuejs.org/v2/guide/render-function.html
   return {
     store,
+    i18n,
     render(createElement) {
       return createElement(previewComponent)
     },

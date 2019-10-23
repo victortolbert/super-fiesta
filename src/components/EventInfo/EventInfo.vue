@@ -4,7 +4,7 @@
       <span>{{ $t('event_info.event_date') }}</span> <b>{{ eventDate }}</b>
     </div>
     <div>
-      <b>{{ daysRemaining }}</b> {{ $t('event_info.days_remaining') }}
+      <b>{{ daysRemaining }}</b> {{ 'event_info.days_remaining' }}
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
   props: {
     funrunDate: {
       type: Date,
-      default: null,
+      default: () => (new Date()),
     },
   },
   computed: {

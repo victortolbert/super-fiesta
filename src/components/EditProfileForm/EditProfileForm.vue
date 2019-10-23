@@ -177,8 +177,8 @@
 </template>
 
 <script>
-import ChangePasswordModal from '@/components/pattern/ChangePasswordModal';
-import SaveSuccessModal from '@/components/template/SaveSuccessModal';
+import ChangePasswordModal from '@/components/ChangePasswordModal';
+import SaveSuccessModal from '@/components/SaveSuccessModal';
 import { range } from 'lodash';
 import { required, email } from 'vuelidate/lib/validators';
 import { notBooster, meetsMinimumAge, isPhone } from '@/utilities/customValidators';

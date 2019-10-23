@@ -68,7 +68,7 @@ export default {
   data() {
     return {
       showAll: false,
-      sponsors: [],
+      // sponsors: [],
     }
   },
   computed: {
@@ -81,7 +81,7 @@ export default {
   },
   created() {
     // let url = `/v3/api/business-leaderboard-pledges/${this.program.id}`
-    let url = `/v3/api/business-leaderboard-pledges.json`
+    let url = `http://localhost:8080/v3/api/business-leaderboard-pledges.json`
     this.$axios.get(url)
       .then((response) => {
         console.log(response.data)

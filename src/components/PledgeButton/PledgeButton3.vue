@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import BaseButton from '@/components/shared/base/BaseButton'
+import BaseButton from '@/components/BaseButton'
 
 export default {
   components: { BaseButton },
