@@ -6,7 +6,7 @@
         class="py-8"
       >
         <button
-          class="text-2xl w-8 h-8 text-black float-right cursor-pointer focus:outline-none focus: shadow-outline"
+          class="text-2xl w-8 h-8 text-black float-right cursor-pointer focus:outline-none focus:shadow-outline"
           @click="toggleRewards(participant.id)"
         >
           <i class="fal fa-times" />

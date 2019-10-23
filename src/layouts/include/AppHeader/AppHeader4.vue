@@ -238,11 +238,21 @@ export default {
   watch: {
     isOpen: {
       immediate: true,
-      handler(isOpen) {
+      handler (isOpen) {
         if (isOpen) {
-          document.body.style.setProperty('overflow', 'hidden')
+          // Disable scrolling.
+          document.ontouchmove = function (e) {
+            e.preventDefault();
+          }
+          document.body.style.setProperty('overflow', 'hidden');
+          document.documentElement.style.setProperty('overflow', 'hidden');
         } else {
-          document.body.style.removeProperty('overflow')
+          // Enable scrolling.
+          document.ontouchmove = function (e) {
+            return true;
+          }
+          document.body.style.removeProperty('overflow');
+          document.documentElement.style.removeProperty('overflow', 'hidden');
         }
       },
     },
