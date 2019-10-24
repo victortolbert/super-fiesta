@@ -1,7 +1,14 @@
 <template>
   <div id="app" class="">
     <!-- <AppNavbar /> -->
-    <router-view :programs="$store.state.user.programs" />
+    <!-- if need to refresh token before doing requests, if token expired then tokenNeedToRefresh === true -->
+    <div
+      v-if="loggedIn && tokenExpired"
+      class="flex justify-center items-center h-full"
+    >
+      <h1>Loading...</h1>
+    </div>
+    <RouterView v-else :programs="$store.state.user.programs" />
     <Quickview class="fixed z-40">
       Is active?
     </Quickview>
@@ -9,6 +16,8 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex'
+
 import authUser from '../public/v3/api/auth/user2.json'
 // import AppNavbar from '@/layouts/include/AppNavbar'
 import Quickview from '@/components/shared/patterns/Quickview'
@@ -22,6 +31,13 @@ export default {
   data: () => ({
     isOpen: true,
   }),
+  computed: {
+    ...mapState('auth', ['user']),
+    ...mapGetters('auth', ['loggedIn', 'tokenExpired']),
+  },
+  // async mounted () {
+  //   await this.$store.dispatch('auth/init')
+  // },
   created () {
     this.$store.dispatch('initStore', authUser)
     // fetch('/users.json')

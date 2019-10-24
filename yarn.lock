@@ -8207,6 +8207,11 @@ istanbul-reports@^2.2.6:
   dependencies:
     handlebars "^4.1.2"
 
+izitoast@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/izitoast/-/izitoast-1.4.0.tgz#1aa4e3408b7159fba743506af66d8be54fd929fb"
+  integrity sha512-Oc1X2wiQtPp39i5VpIjf3GJf5sfCtHKXZ5szx7RareyEeFLUlcEW0FSfBni28+Ul6KNKZRKzhVuWzSP4Xngh0w==
+
 javascript-stringify@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/javascript-stringify/-/javascript-stringify-1.6.0.tgz#142d111f3a6e3dae8f4a9afd77d45855b5a9cce3"
@@ -14054,7 +14059,7 @@ stylus-loader@^3.0.2:
     lodash.clonedeep "^4.5.0"
     when "~3.6.x"
 
-stylus@^0.54.5:
+stylus@^0.54.5, stylus@^0.54.7:
   version "0.54.7"
   resolved "https://registry.yarnpkg.com/stylus/-/stylus-0.54.7.tgz#c6ce4793965ee538bcebe50f31537bfc04d88cd2"
   integrity sha512-Yw3WMTzVwevT6ZTrLCYNHAFmanMxdylelL3hkWNgPMeTCpMwpV3nXjpOHuBXtFv7aiO2xRuQS6OoAdgkNcSNug==
@@ -15064,6 +15069,11 @@ vary@^1, vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
+vee-validate@^3.0.11:
+  version "3.0.11"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-3.0.11.tgz#5ffe3d501893801529186642d20241cf632f1341"
+  integrity sha512-2KRLdtM/y+bU2o9KC7cZBGPRUsBxQaoFb3IlBOUkj6l24Gx5XWXxNkhaAXK97BRLOdM4CH/gJYFi9DOm0N7dTQ==
+
 vendors@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.3.tgz#a6467781abd366217c050f8202e7e50cc9eef8c0"
@@ -15295,6 +15305,16 @@ vue-multiselect@^2.1.6:
   resolved "https://registry.yarnpkg.com/vue-multiselect/-/vue-multiselect-2.1.6.tgz#5be5d811a224804a15c43a4edbb7485028a89c7f"
   integrity sha512-s7jmZPlm9FeueJg1RwJtnE9KNPtME/7C8uRWSfp9/yEN4M8XcS/d+bddoyVwVnvFyRh9msFo0HWeW0vTL8Qv+w==
 
+vue-notifications@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/vue-notifications/-/vue-notifications-1.0.2.tgz#988a0f42b472eb28afdcae4d7300307da3de1734"
+  integrity sha512-D9a3bhqW18tf4uRqFwh3Q0vIlcP9ipVnieyX2hAb/bqrGyVAx/JWPTqky7py9mU/DDaL5BY49MJzsctIDr7i2g==
+
+vue-plugin-axios@^1.0.14:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/vue-plugin-axios/-/vue-plugin-axios-1.0.14.tgz#d8631a3ce3028215368d34d8ac6201e196069451"
+  integrity sha512-hpFdi17XsSdYQnrlHrml4BnmH9ceJSkpCoMGbPCz5vfDoY7okWuzKgeKK44NgRlZzlUCrq7ug3fGLZ2nv/qNNA==
+
 vue-resize@^0.4.5:
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/vue-resize/-/vue-resize-0.4.5.tgz#4777a23042e3c05620d9cbda01c0b3cc5e32dcea"
@@ -15464,6 +15484,16 @@ vuepress@^1.2.0:
     cac "^6.3.9"
     envinfo "^7.2.0"
     opencollective-postinstall "^2.0.2"
+
+vuex-router-sync@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/vuex-router-sync/-/vuex-router-sync-5.0.0.tgz#1a225c17a1dd9e2f74af0a1b2c62072e9492b305"
+  integrity sha512-Mry2sO4kiAG64714X1CFpTA/shUH1DmkZ26DFDtwoM/yyx6OtMrc+MxrU+7vvbNLO9LSpgwkiJ8W+rlmRtsM+w==
+
+vuex-shared-mutations@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/vuex-shared-mutations/-/vuex-shared-mutations-1.0.2.tgz#c5b31fefc29a25be3ca555430d9526ffdd51c199"
+  integrity sha512-tu+rN4DAtZQiRAHLms6OtYdtoK60sKD0CXAP1l+N4lB1rYxJC/cDVGsjXGB/A4p7qIUVb4Mzr8C2Pg1wZlrikA==
 
 vuex@^3.1.1:
   version "3.1.1"

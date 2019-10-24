@@ -45,6 +45,27 @@ Vue.config.productionTip = false
 const bar = Vue.prototype.$bar = new Vue(ProgressBar).$mount()
 document.body.appendChild(bar.$el)
 
+Vue.prototype.$auth = {
+  get user () {
+    return store.state.auth.user
+  },
+  get loggedIn () {
+    return store.getters['auth/loggedIn']
+  },
+}
+
+// It makes it easy to launch an action in a component that is bound to the loading
+Vue.prototype.$actionWithLoading = async function (action, loadingVariable = 'loading', ...arg) {
+  this[loadingVariable] = true
+  try {
+    await action(...arg)
+  } catch (e) {
+    throw e // so that the error can be caught above
+  } finally {
+    this[loadingVariable] = false
+  }
+}
+
 // const requireComponent = require.context(
 //   './components',
 //   false,
@@ -68,3 +89,6 @@ new Vue({
   i18n,
   render: h => h(App),
 }).$mount('#app')
+
+// init auth module
+store.dispatch('auth/init')

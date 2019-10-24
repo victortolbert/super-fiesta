@@ -1,5 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createMutationsSharer from 'vuex-shared-mutations'
+
+import authModule from '@/store/modules/auth/'
+import currentUserProfile from '@/store/modules/profile/currentUser'
+
 import userModule from '@/store/modules/user';
 import programModule from '@/store/modules/program';
 import participantModule from '@/store/modules/participant';
@@ -13,7 +18,18 @@ import * as notification from '@/store/modules/notification';
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
+  plugins: [createMutationsSharer({
+    predicate: [
+      'auth/USER',
+      'auth/TOKEN',
+      'auth/REFRESH_TOKEN_EXPIRED',
+      'auth/USER_LOGGED_IN',
+      'auth/USER_LOGGED_OUT',
+    ],
+  })],
   modules: {
+    auth: authModule,
+    profile: currentUserProfile,
     user: userModule,
     program: programModule,
     participant: participantModule,
