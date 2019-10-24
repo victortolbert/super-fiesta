@@ -4,7 +4,7 @@
       v-for="(program, index) in $store.state.program.programs"
       :key="index"
       :class="program.microsite.microsite_color_theme.theme_name"
-      class="flex flex-col min-h-screen"
+      class="flex flex-col min-h-screen bg-gray-200"
     >
       <AppHeader class="mb-8">
         <a :name="program.event_name" />

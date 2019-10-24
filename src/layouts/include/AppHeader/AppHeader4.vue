@@ -155,8 +155,7 @@
           <!-- z-10 fixed inset-y-0 right-0 max-w-xs w-full bg-white transition-transform overflow-hidden shadow-lg" style="top: 4rem; margin-top:-2px" -->
           <div
             v-show="isOpen"
-            style="top: 6rem;"
-            class="z-10 fixed inset-y-0 right-0 max-w-xs mt-1 w-full bg-white transition-transform overflow-y-auto shadow-lg"
+            class="z-10 fixed inset-y-0 right-0 max-w-xs w-full bg-white transition-transform overflow-y-auto shadow-lg"
           >
             <div class="relative z-10 bg-white">
               <div
