@@ -45,7 +45,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.program)
+    // console.log(this.program)
   },
 }
 </script>

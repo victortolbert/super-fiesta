@@ -5,14 +5,14 @@
     </h1>
     <img
       alt="Laravel logo"
-      src="@/assets/laravel.png"
+      src="@/assets/img/laravel.png"
       class="logo"
       style="max-width: 200px"
     >
     <span class="plus">+</span>
     <img
       alt="Vue logo"
-      src="@/assets/vue.png"
+      src="@/assets/img/vue.png"
       class="logo"
       style="max-width: 150px"
     >

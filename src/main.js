@@ -14,6 +14,7 @@ import ProgressBar from './components/ProgressBar'
 import WebFontLoader from '@/utilities/shared/webFontLoader'
 
 import 'nprogress/nprogress.css'
+import '@/styles/main.styl'
 
 // bootstrap app
 import '@/plugins' // eslint-disable-line no-unused-vars

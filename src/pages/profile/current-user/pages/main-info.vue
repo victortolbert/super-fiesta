@@ -1,5 +1,5 @@
 <template>
-  <div class="w-100">
+  <div class="w-full">
     <!--<h1>{{ $auth.user.name }}</h1>-->
 
     <table class="table table-bordered">

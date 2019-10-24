@@ -9,7 +9,7 @@
 
 <style lang="stylus">
   .right
-    background-image: url('../assets/404.svg')
+    background-image: url('../assets/svg/404.svg')
     background-position: center
     background-repeat: no-repeat
     background-size: cover

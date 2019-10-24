@@ -15,12 +15,12 @@
     </div>
 
     <div v-show="!sent">
-      <router-link
+      <RouterLink
         :to="{ name: 'signin' }"
         class="float-left"
       >
         🡄  Go back
-      </router-link>
+      </RouterLink>
       <br>
       <form
         class="mt-4 w-100"

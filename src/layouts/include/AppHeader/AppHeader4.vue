@@ -160,8 +160,8 @@
           >
             <div class="relative z-10 bg-white">
               <div
-                v-for="program in $store.state.program.programs"
-                :key="program.id"
+                v-for="(program, index) in $store.state.program.programs"
+                :key="index"
                 :class="program.microsite.microsite_color_theme.theme_name"
               >
                 <a :href="`#${program.event_name}`" class="block m-0 p-4 font-bold border-t-8 bg-gray-300 text-blue-600 border-blue-600">{{ program.event_name }}</a>
@@ -180,6 +180,18 @@
               <a href="#" class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100">My Profile (titan)</a>
               <a href="#" class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100">Help Center</a>
               <a href="#" class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100">Logout</a>
+              <router-link class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100" to="/foo">
+                /foo
+              </router-link>
+              <router-link class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100" to="/bar">
+                /bar
+              </router-link>
+              <router-link class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100" to="/bar#anchor">
+                /bar#anchor
+              </router-link>
+              <router-link class="block m-0 p-4 font-medium text-gray-600 border-b border-gray-300 hover:text-blue-700 hover:bg-gray-100" to="/bar#anchor2">
+                /bar#anchor2
+              </router-link>
             </div>
           </div>
         </transition>

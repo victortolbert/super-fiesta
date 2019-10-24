@@ -1,6 +1,109 @@
 <template>
-  <div :class="['pledge-info-card flip-card', {flipped: flipped}]">
-    {{ pledgeSponsor.first_name }}
+  <div :class="['pledge-info-card max-w-full flip-card', { flipped: flipped }]">
+    <!-- <pre class="text-xs">{{ pledges }}</pre> -->
+    <div class="flip-card-inner">
+      <div
+        class="flip-card-front h-full bg-white border border-b-2 shadow-md border-grey-light rounded-lg p-2 px-4"
+      >
+        <div class="flex items-center mb-2">
+          <div class="w-1/2">
+            <div class="leading-none">
+              <span
+                class="font-semibold text-lg"
+              >{{ pledgeSponsor.first_name }} {{ pledgeSponsor.last_name }}</span>
+              <br>
+              <span class="text-xxs has-text-grey">{{ date }}</span>
+            </div>
+          </div>
+          <div class="w-1/2 has-text-right">
+            <div class="flex justify-end">
+              <a
+                v-if="pledges[0].comment"
+                class="ml-2 flex flex-col items-center has-text-grey"
+                @click.prevent="viewComment"
+              >
+                <FontAwesomeIcon :icon="['far', 'comment-alt-lines']" />
+                <div class="text-xxs whitespace-no-wrap capitalize">{{ $t('view_comment') }}</div>
+              </a>
+              <a
+                v-if="isMissingPayment"
+                class="ml-2 flex flex-col items-center has-text-grey"
+                @click.prevent="remind(pledges[0].id)"
+              >
+                <FontAwesomeIcon :icon="['far', 'envelope']" />
+                <div class="text-xxs capitalize">{{ $t('remind') }}</div>
+              </a>
+              <a
+                class="ml-6 flex flex-col items-center has-text-grey"
+                @click.prevent="edit"
+              >
+                <FontAwesomeIcon :icon="['far', 'edit']" />
+                <div class="text-xxs capitalize">{{ $t('edit') }}</div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            v-for="pledge in pledges"
+            :key="pledge.id"
+            class="text-sm"
+          >
+            <div class="flex justify-between border-b-2">
+              <div>{{ pledge.participant.first_name }}</div>
+              <div>
+                ${{ pledge.amount }}
+                <span
+                  v-if="pledge.pledge_type_id === 1"
+                >{{ program.unit.modifier }} {{ program.unit.name }}</span>
+              </div>
+            </div>
+            <div
+              v-if="showAllStatuses || isLastPledge(pledge)"
+              class="flex justify-between items-baseline"
+            >
+              <span
+                :class="[statusClasses[pledge.pledge_status_id]]"
+                class="capitalize font-bold"
+              >{{ $t('statuses[pledge.pledge_status_id]') }}</span>
+              <div
+                v-if="isLastPledge(pledge)"
+                class="text-base capitalize"
+              >
+                {{ $t('total') }}
+                <span class="font-bold">${{ pledgeTotal }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flip-card-back flex flex-col align-middle bg-white border border-b-2 shadow-md border-grey-light rounded-lg p-2 px-4"
+      >
+        <div class="flex items-center mb-2">
+          <div class="w-1/2">
+            <div class="leading-none">
+              <span
+                class="font-semibold"
+              >{{ pledgeSponsor.first_name }} {{ pledgeSponsor.last_name }}</span>
+            </div>
+          </div>
+          <div class="w-1/2 has-text-right">
+            <div class="flex justify-end">
+              <a
+                class="ml-6 flex flex-col items-center has-text-grey"
+                @click.prevent="flip"
+              >
+                <FontAwesomeIcon :icon="['far', 'times']" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="p-4 flex flex-1 items-center justify-center">
+          <span class="text-center">“{{ pledges[0].comment }}”</span>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -35,7 +138,22 @@ export default {
   },
   computed: {
     lang() {
-      return this.$store.state.lang
+      return {
+        months: {
+          '0': 'Jan',
+          '1': 'Feb',
+          '2': 'Mar',
+          '3': 'Apr',
+          '4': 'May',
+          '5': 'June',
+          '6': 'July',
+          '7': 'Aug',
+          '8': 'Sept',
+          '9': 'Oct',
+          '10': 'Nov',
+          '11': 'Dec',
+        },
+      }
     },
     showAllStatuses() {
       const statuses = this.pledges.map((pledge) => {
@@ -45,7 +163,7 @@ export default {
       return statusSet.size > 1
     },
     pledgeSponsor() {
-      console.log(this.$store.state.pledge.pledges[0][0][0].pledge_sponsor)
+      // console.log(this.$store.state.pledge.pledges[0][0][0].pledge_sponsor)
       return this.$store.state.pledge.pledges[0][0][0].pledge_sponsor
     },
     date() {

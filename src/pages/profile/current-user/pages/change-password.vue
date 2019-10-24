@@ -1,7 +1,7 @@
 <template>
-  <div class="w-75">
+  <div class="w-3/4">
     <form>
-      <div class="form-group">
+      <div class="field">
         <label for="profileInputCurrentPassword">
           Current password:
         </label>
@@ -10,19 +10,19 @@
           id="profileInputCurrentPassword"
           v-model="form.currentPassword"
           :class="{
-            'form-control': true,
+            'input': true,
             'is-invalid': errors.has('password')
           }"
           data-vv-name="password"
           type="password"
-          class="form-control"
+          class="input"
           placeholder="Password"
         >
         <div :class="{ 'validation-feedback': true, 'invalid-feedback': errors.has('password') }">
           {{ errors.first('password') }}
         </div>
       </div>
-      <div class="form-group">
+      <div class="field">
         <label for="profileInputNewPassword">
           New password:
         </label>
@@ -31,15 +31,19 @@
           id="profileInputNewPassword"
           v-model="form.newPassword"
           :class="{
-            'form-control': true,
+            'input': true,
             'is-invalid': errors.has('new-password')
           }"
           data-vv-name="new-password"
           type="password"
-          class="form-control"
+          class="input"
           placeholder="Password"
         >
-        <div :class="{ 'validation-feedback': true, 'invalid-feedback': errors.has('new-password') }">
+        <div :class="{
+          'validation-feedback': true,
+          'invalid-feedback': errors.has('new-password')
+        }"
+        >
           {{ errors.first('new-password') }}
         </div>
       </div>

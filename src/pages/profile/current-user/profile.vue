@@ -1,44 +1,48 @@
 <template>
   <div
     v-if="$auth.user"
-    class="w-100 h-100"
+    class="w-full h-full"
   >
-    <div class="row">
-      <div class="col-3">
+    <div class="flex">
+      <div class="w-3/12">
         <h1>{{ $auth.user.name }}</h1>
 
-        <router-link to="/">
+        <RouterLink to="/">
           🡄  Go back
-        </router-link>
+        </RouterLink>
 
         <div class="nav flex-column nav-pills mt-3">
-          <router-link
-            :to="{ name: 'profile' }"
+          <RouterLink
+            :to="{
+              name: 'profile'
+            }"
             active-class="active"
             class="nav-link"
           >
             Main info
-          </router-link>
-          <router-link
-            :to="{ name: 'profile-change-password' }"
+          </RouterLink>
+          <RouterLink
+            :to="{
+              name: 'profile-change-password'
+            }"
             active-class="active"
             class="nav-link"
           >
             Change password
-          </router-link>
+          </RouterLink>
           <!--<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>-->
         </div>
       </div>
-      <div class="col-9">
+      <div class="w-9/12">
         <div class="tab-content">
           <div class="tab-pane fade show active">
-            <div class="d-flex justify-content-center">
-              <transition
+            <div class="flex justify-center">
+              <Transition
                 name="router"
                 mode="out-in"
               >
-                <router-view />
-              </transition>
+                <RouterView />
+              </Transition>
             </div>
           </div>
         </div>
@@ -53,7 +57,3 @@ export default {
   data: () => ({}),
 }
 </script>
-
-<style lang="stylus">
-
-</style>

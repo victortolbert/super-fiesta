@@ -18,7 +18,7 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 
-import authUser from '../public/v3/api/auth/user2.json'
+import authUser from '../public/v3/api/auth/user.json'
 // import AppNavbar from '@/layouts/include/AppNavbar'
 import Quickview from '@/components/shared/patterns/Quickview'
 

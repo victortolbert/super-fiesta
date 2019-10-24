@@ -25,7 +25,12 @@
           class="form-control"
           placeholder="Password"
         >
-        <div :class="{ 'validation-feedback': true, 'invalid-feedback': errors.has('password') }">
+        <div
+          :class="{
+            'validation-feedback': true,
+            'invalid-feedback': errors.has('password')
+          }"
+        >
           {{ errors.first('password') }}
         </div>
       </div>

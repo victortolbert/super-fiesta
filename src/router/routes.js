@@ -1,7 +1,8 @@
 import MainLayout from '@/layouts/Main.vue'
-import Home from '@/pages/Home.vue'
+import Home from '@/pages/home.vue'
 
 import auth from './groups/auth'
+import dashboard from './groups/dashboard'
 import profile from './groups/profile'
 import other from './groups/other'
 
@@ -16,6 +17,7 @@ export default [
         component: Home,
       },
       ...auth,
+      ...dashboard,
       ...profile,
       ...other,
       {

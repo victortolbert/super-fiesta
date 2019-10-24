@@ -62,7 +62,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import Auth from '@/components/Auth.vue'
+import Auth from '@/components/Auth'
 
 export default {
   name: 'Home',

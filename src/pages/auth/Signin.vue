@@ -3,12 +3,12 @@
     <h1 class="text-center">
       Sign in
     </h1>
-    <router-link
+    <RouterLink
       to="/"
       class="float-left"
     >
       🡄  Go back
-    </router-link>
+    </RouterLink>
     <br>
     <form class="mt-4 w-100">
       <div class="form-group">
@@ -69,19 +69,19 @@
       </button>
 
       <span>
-        <router-link
+        <RouterLink
           :to="{ name: 'forgot-password' }"
           class="small"
         >
           Forgot password?
-        </router-link>
+        </RouterLink>
         <br>
-        <router-link
+        <RouterLink
           :to="{ name: 'signup' }"
           class="small"
         >
           Sign up
-        </router-link>
+        </RouterLink>
       </span>
     </form>
   </div>

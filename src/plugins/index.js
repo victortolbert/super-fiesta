@@ -1,7 +1,11 @@
 import 'nprogress/nprogress.css'
 
 import '@/plugins/buefy'
+// import '@/plugins/bootstrap'
 import '@/plugins/fontawesome'
+import '@/plugins/notifications'
 import '@/plugins/v-tooltip'
+import '@/plugins/validator'
 import '@/plugins/vue-croppa'
+import '@/plugins/vue-plugin-axios'
 import '@/plugins/vuelidate'

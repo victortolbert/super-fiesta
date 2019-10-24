@@ -68,7 +68,7 @@ export default {
   data() {
     return {
       showAll: false,
-      // sponsors: [],
+      sponsors: [],
     }
   },
   computed: {
@@ -84,7 +84,6 @@ export default {
     let url = `http://localhost:8080/v3/api/business-leaderboard-pledges.json`
     this.$axios.get(url)
       .then((response) => {
-        console.log(response.data)
         this.sponsors = response.data
       }).catch((error) => {
         // eslint-disable-next-line

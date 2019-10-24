@@ -95,13 +95,13 @@ export default {
       );
     },
     myPledgedCountries () {
-      console.log(this.$store.state.participant.participants)
+      // console.log(this.$store.state.participant.participants)
 
       return uniq(
         flatMap(this.$store.state.participant.participants, participant => {
           return flatMap(participant.participant_info.pledges, pledges => {
-            if (pledges.pledge_sponsor.country_entity) {
-              return pledges.pledge_sponsor.country_entity.name;
+            if (pledges[0].pledge_sponsor.country_entity) {
+              return pledges[0].pledge_sponsor.country_entity.name;
             }
             return '';
           }).filter(country => !!country);

@@ -1,8 +1,8 @@
 <template>
   <div>
     <div
-      v-for="program in $store.state.program.programs"
-      :key="program.id"
+      v-for="(program, index) in $store.state.program.programs"
+      :key="index"
       :class="program.microsite.microsite_color_theme.theme_name"
       class="flex flex-col min-h-screen"
     >
