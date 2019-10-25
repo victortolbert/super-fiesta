@@ -68,7 +68,7 @@ export default {
   },
   computed: {
     hasVideo() {
-      return this.participants.reduce((result, participant) => {
+      return this.$store.state.participant.participants.reduce((result, participant) => {
         const hasImage = !!participant.profile.image_name
         return result || hasImage
       }, false)

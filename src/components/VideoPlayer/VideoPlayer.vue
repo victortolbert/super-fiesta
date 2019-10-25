@@ -6,11 +6,30 @@
         :source="activeVideo.source"
       />
     </figure>
+
+    <BTabs
+      v-model="activeTab"
+    >
+      <BTabItem
+        v-for="(videoCollection, index) in videoCollections"
+        :key="index"
+      >
+        <template slot="header">
+          <span class="text-xl font-medium inline-block -ml-4">{{ videoCollection.title }}</span>
+        </template>
+        <VideoGallery
+          :videos="videoCollection.videos"
+          :selected-video-id="activeVideo.external_video_id"
+          @videoSelected="updateActiveVideo"
+        />
+      </BTabItem>
+    </BTabs>
   </div>
 </template>
 
 <script>
 import VideoIframe from '@/components/VideoIframe'
+import VideoGallery from '@/components/VideoGallery'
 
 export default {
   name: 'VideoPlayer',
@@ -18,6 +37,7 @@ export default {
   release: '1.0',
   components: {
     VideoIframe,
+    VideoGallery,
   },
   props: {
     videoCollections: {

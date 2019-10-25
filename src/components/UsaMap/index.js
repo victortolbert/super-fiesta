@@ -1,3 +1,3 @@
-import UsaMap from './UsaMap2'
+import UsaMap from './UsaMap3'
 
 export default UsaMap

@@ -18,13 +18,13 @@
         v-if="inProgress"
         class="font-bold has-text-tertiary"
       >
-        {{ lang.student_star_video.video_in_progress }}
+        {{ $t('student_star_video.video_in_progress') }}
       </span>
       <span
         v-else-if="readyToShare"
         class="font-bold has-text-primary"
       >
-        {{ lang.ready_to_share }}
+        {{ $t('ready_to_share') }}
       </span>
       <RouterLink
         v-else
@@ -32,7 +32,7 @@
         class="button is-rounded is-secondary"
         @click.native="gaEvent('Parent Dashboard', 'Student Star Video Section', 'Upload Photo')"
       >
-        {{ lang.student_star_video.upload_photo }}
+        {{ $t('student_star_video.upload_photo') }}
       </RouterLink>
     </div>
   </div>

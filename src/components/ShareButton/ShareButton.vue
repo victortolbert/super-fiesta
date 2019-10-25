@@ -110,13 +110,13 @@ export default {
     },
     smsLink() {
       const referrerName = this.hasVideo ? 'SMS_Video' : 'SMS'
-      const isAre = this.participants.length === 1 ? 'is' : 'are'
+      const isAre = this.$store.state.participant.participants.length === 1 ? 'is' : 'are'
       const eventName = this.program.event_name
       const langString = this.hasVideo ? this.lang.sms.has_video : this.lang.sms.no_video
       const smsBody = this.parseLanguage(
         langString,
         {
-          participant_display_names: this.participantDisplayNames(this.participants),
+          participant_display_names: this.participantDisplayNames(this.$store.state.participant.participants),
           is_are: isAre,
           event_name: eventName,
           share_url: this.getShareUrl(referrerName),
@@ -152,7 +152,7 @@ export default {
       }
     },
     getSmallestParticipantId() {
-      const participantIds = this.participants.map(obj => obj.id)
+      const participantIds = this.$store.state.participant.participants.map(obj => obj.id)
       return Math.min(...participantIds)
     },
     gaTrack() {
@@ -185,7 +185,7 @@ export default {
     shareFacebook() {
       const referrerName = this.hasVideo ? 'Facebook_Video' : 'Facebook'
       const url = this.getShareUrl(referrerName)
-      const participantUserId = this.participants[0].id
+      const participantUserId = this.$store.state.participant.participants[0].id
       /* eslint-disable */
       FB.ui(
         {

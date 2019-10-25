@@ -5,32 +5,22 @@
       :video-collections="videoCollections"
       :preset-video="presetVideo"
     />
-    <div>
+    <div class="pt-8 pb-2">
       <h2 class="text-lg sm:text-2xl font-semibold">
-        Program Description
+        {{ lang.header_overview_text_override }}
       </h2>
 
-      <p class="text-sm sm:text-xl">
-        Your school is hosting a 2-week fundraiser powered by the Boosterthon!
-        Instead of selling items, families will gather pledges to help your
-        school, while students experience a world-class character program and
-        participate in the Alpharetta Glow Run. Most students will complete
-        30-35 laps at the Fun Run event.
-      </p>
-
-      <a
-        class="text-sm sm:text-xl font-semibold"
-        href="#"
-        @click.prevent=""
-      >
-        Read More
-      </a>
+      <ReadMoreComponent
+        :text="programDescription"
+        :limit="320"
+        class="readmore-wrapper text-sm sm:text-xl"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import VideoPlayer from '@/components/VideoPlayer'
+import VideoPlayer from '@/components/VideoPlayer';
 
 export default {
   name: 'ProgramOverview',
@@ -45,54 +35,95 @@ export default {
       default: null,
     },
   },
-  data() {
+  data () {
     return {
       displayVideoPlayer: false,
       videoCollections: [],
       presetVideo: {},
       programVideos: {
         title: 'Program Videos',
-        url: `/v3/api/videos/program/5`,
+        url: `/v3/api/videos/program.json`,
       },
       characterVideos: {
         title: 'Character Videos',
-        url: `/v3/api/videos/character`,
+        url: `/v3/api/videos/character.json`,
       },
-    }
+    };
   },
-  created() {
+  computed: {
+    lang () {
+      return this.$store.state.lang;
+    },
+    programDescription: function () {
+      if (typeof this.program.microsite.overview_text_override === 'string' &&
+            this.program.microsite.overview_text_override.trim() !== '') {
+        return this.program.microsite.overview_text_override;
+      } else {
+        return this.parseLanguage(
+          this.$store.state.lang.overview_text_override,
+          {
+            event_name: this.program.event_name,
+            unit_plural: this.program.unit.name_plural,
+          });
+      }
+    },
+  },
+  created () {
     this.fetchVideos(this.programVideos).then(() => {
       if (this.program.microsite.hide_character_videos !== 1) {
         this.fetchVideos(this.characterVideos).then(() => {
-          this.setPresetVideo(this.videoCollections)
-        })
+          this.setPresetVideo(this.videoCollections);
+        });
       } else if (this.videoCollections.length > 0) {
-        this.setPresetVideo(this.videoCollections)
+        this.setPresetVideo(this.videoCollections);
       }
-    })
+    });
   },
   methods: {
-    fetchVideos(videoMetadata) {
-      const videos = axios.get(videoMetadata.url).then((response) => {
+    fetchVideos (videoMetadata) {
+      let videos = axios.get(videoMetadata.url).then(response => {
         if (response.data.length > 0) {
           this.videoCollections.push({
             videos: response.data,
             title: videoMetadata.title,
-          })
+          });
         }
-      }).catch((error) => {
-        // eslint-disable-next-line
-        console.error(error)
-      })
+      }).catch(error => {
+        console.error(error);
+      });
 
-      return videos
+      return videos;
     },
-    setPresetVideo(videoCollections) {
+    setPresetVideo (videoCollections) {
       if (!this.displayVideoPlayer) {
-        this.presetVideo = videoCollections[0].videos[0]
-        this.displayVideoPlayer = true
+        this.presetVideo = videoCollections[0].videos[0];
+        this.displayVideoPlayer = true;
       }
     },
   },
-}
+};
 </script>
+
+<style lang="scss">
+    .program-overview .readmore-wrapper {
+        .toggled p {
+            margin-bottom: 1em;
+        }
+        .toggled span > :last-child {
+            margin-bottom: 0em;
+        }
+        ol, ul {
+            padding-left: 40px;
+            margin-top: 1em;
+            margin-bottom: 1em;
+
+            ol, ul {
+                margin-top: 0em;
+                margin-bottom: 0em;
+            }
+        }
+        ul {
+            list-style-type: disc;
+        }
+    }
+</style>
