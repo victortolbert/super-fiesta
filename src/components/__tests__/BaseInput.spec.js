@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import BaseInput from './BaseInput';
+import BaseInput from '../BaseInput';
 
 describe('BaseInput', () => {
   it('is called', () => {

@@ -27,7 +27,12 @@
         </div>
       </div>
       <div class="flex justify-center">
-        <PledgeButton :participants="participants" class="inline-block" />
+        <PledgeButton
+          :participants="participants"
+          class="inline-block"
+        >
+          Pay Pledges
+        </PledgeButton>
       </div>
     </div>
     <!-- Desktop (mobile hidden)-->
@@ -44,7 +49,10 @@
         />
       </div>
       <div class="mt-8 flex justify-center">
-        <PledgeButton :participants="participants" class="inline-block">
+        <PledgeButton
+          :participants="participants"
+          class="inline-block"
+        >
           Pay Pledges
         </PledgeButton>
       </div>

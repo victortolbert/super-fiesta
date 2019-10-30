@@ -83,11 +83,19 @@ module.exports = {
       primary: 'var(--color-primary)',
       secondary: 'var(--color-secondary)',
       tertiary: 'var(--color-tertiary)',
+
+      success: 'var(--color-success)',
+      danger: 'var(--color-danger)',
+      warning: 'var(--color-warning)',
+      info: 'var(--color-info)',
+
+      light: 'var(--color-light)',
+      dark: 'var(--color-dark)',
+
       facebook: 'var(--color-facebook)',
       'copy-link': 'var(--color-copy)',
       'text-message': 'var(--color-text)',
       email: 'var(--color-emailer)',
-      danger: 'var(--color-danger)',
       sms: 'var(--color-sms)',
 
       gray: {

@@ -10,7 +10,7 @@
         <a :name="program.event_name" />
         {{ program.event_name }}
       </AppHeader>
-      <main class="flex-1 w-full max-w-6xl mx-auto">
+      <main class="flex-1 w-full max-w-6xl mx-auto mt-24">
         <ParentDashboardLayout
           :program="program"
         />

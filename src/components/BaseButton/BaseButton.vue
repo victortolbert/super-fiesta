@@ -3,8 +3,8 @@
     <button
       v-on="$listeners"
       v-bind="$attrs"
-      class="button leading-none block w-full mx-auto max-w-xs py-2 px-12 bg-green-600 text-green-100 hover:text-green-100 text-lg font-semibold rounded-full hover:shadow-lg"
-      :class="buttonClass"
+      class="button leading-none block w-full mx-auto max-w-xs py-2 px-12 rounded-full hover:shadow-lg"
+      :class="classObject"
     >
       <slot />
     </button>
@@ -18,6 +18,17 @@ export default {
     buttonClass: {
       type: String,
       default: '',
+    },
+    isPrimary: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    classObject () {
+      return {
+        'text-lg font-semibold bg-green-600 hover:bg-green-700 text-green-100 hover:text-white': this.isPrimary,
+      }
     },
   },
 }

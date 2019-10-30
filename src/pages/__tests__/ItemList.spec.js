@@ -1,8 +1,8 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 import flushPromises from 'flush-promises'
-import ItemList from '../ItemList.vue'
-import Item from '../../components/Item.vue'
+import ItemList from '../item-list.vue'
+import Item from '../../components/Item'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)

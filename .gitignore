@@ -28,3 +28,6 @@ yarn-error.log*
 /src/components/shared
 /src/filters/shared
 /src/utilities/shared
+storybook-static
+dist
+.env

@@ -22,18 +22,9 @@ module.exports = {
     : 'index.html',
 
   chainWebpack: config => {
-    // // See https://cli.vuejs.org/guide/css.html#automatic-imports
-    const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-
     config.resolve.symlinks(false)
 
-    types.forEach(type =>
-      addStyleResource(
-        config.module.rule('stylus').oneOf(type)
-      )
-    )
-
-    // When using lerna and simlinks,
+    // When using lerna and symlinks,
     // mode some modules that should be ignored are not
     // we add them here to avoid errors
     const vueBrowserCompilerPath = resolve(
@@ -43,9 +34,6 @@ module.exports = {
 
     const eslintRule = config.module.rule('eslint')
     if (eslintRule) {
-      const vsgPath = resolve(dirname(require.resolve('vue-styleguidist')), '../')
-
-      eslintRule.exclude.add(vsgPath)
       eslintRule.exclude.add(vueBrowserCompilerPath)
     }
 
@@ -79,25 +67,11 @@ module.exports = {
       localeDir: 'locales',
       enableInSFC: true,
     },
-    'style-resources-loader': {
-      preProcessor: 'scss',
-      patterns: [
-        resolve(__dirname, 'src/assets/css/shared/abstracts/*.scss'),
-      ],
-    },
+    // 'style-resources-loader': {
+    //   preProcessor: 'scss',
+    //   patterns: [
+    //     resolve(__dirname, 'src/assets/css/shared/abstracts/*.scss'),
+    //   ],
+    // },
   },
-}
-
-// See https://cli.vuejs.org/guide/css.html#automatic-imports
-function addStyleResource (rule) {
-  // console.log(rule)
-  rule.use('style-resource')
-    .loader('style-resources-loader')
-    .options({
-      patterns: [
-        resolve(__dirname, src + 'styles/global/mixins.styl'), // or styles/global/mixins/*.styl
-        resolve(__dirname, src + 'styles/global/variables.styl'),
-        resolve(__dirname, src + 'styles/global/functions.styl'),
-      ],
-    })
 }

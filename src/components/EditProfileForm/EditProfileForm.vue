@@ -1,21 +1,9 @@
 <template>
-  <form
-    novalidate
-    role="form"
-    class="px-3"
-    @submit.prevent="submit"
-  >
+  <form novalidate role="form" class="px-3" @submit.prevent="submit">
     <!-- Tooltip -->
     <div class="flex justify-end">
-      <span
-        v-tooltip="tooltipOptions"
-        class="icon"
-      >
-        <FontAwesomeIcon
-          :icon="['fas', 'question-circle']"
-          size="xs"
-          class="has-text-info"
-        />
+      <span v-tooltip="tooltipOptions" class="icon">
+        <FontAwesomeIcon :icon="['fas', 'question-circle']" size="xs" class="has-text-info" />
       </span>
     </div>
     <legend class="text-lg font-semibold mb-4">
@@ -54,9 +42,7 @@
       <button
         class="inline-block my-4 py-1 px-2 underline font-normal text-secondary hover:text-black focus:outline-none rounded-lg focus:shadow-outline"
         @click.prevent="showChangePasswordModal()"
-      >
-        {{ lang.edit_profile.change_password }}
-      </button>
+      >{{ lang.edit_profile.change_password }}</button>
     </div>
 
     <!-- Phone Number -->
@@ -75,20 +61,11 @@
       <label
         for="birthday"
         class="inline-block mb-1 pl-2 text-grey-darker text-sm"
-      >
-        {{ lang.edit_profile.birthday_label }}
-      </label>
+      >{{ lang.edit_profile.birthday_label }}</label>
       <div class="flex justify-between items-start -mx-2">
         <div class="w-1/3 mx-2">
-          <div
-            :class="{'is-danger border-red-600': $v.form.dob.$invalid}"
-            class="select w-full"
-          >
-            <select
-              v-model="birthMonth"
-              class="w-full"
-              required
-            >
+          <div :class="{'is-danger border-red-600': $v.form.dob.$invalid}" class="select w-full">
+            <select v-model="birthMonth" class="w-full" required>
               <option disabled>
                 {{ lang.edit_profile.month }}
               </option>
@@ -96,22 +73,13 @@
                 v-for="month in months"
                 :key="month.value"
                 :value="month.value"
-              >
-                {{ month.label }}
-              </option>
+              >{{ month.label }}</option>
             </select>
           </div>
         </div>
         <div class="w-1/3 mx-2">
-          <div
-            :class="{'is-danger border-red-600': $v.form.dob.$invalid}"
-            class="select w-full"
-          >
-            <select
-              v-model="birthDay"
-              class="w-full"
-              required
-            >
+          <div :class="{'is-danger border-red-600': $v.form.dob.$invalid}" class="select w-full">
+            <select v-model="birthDay" class="w-full" required>
               <option disabled>
                 {{ lang.edit_profile.day }}
               </option>
@@ -124,22 +92,14 @@
           </div>
         </div>
         <div class="w-1/3 mx-2">
-          <div
-            :class="{'is-danger border-red-600': $v.form.dob.$invalid}"
-            class="select w-full"
-          >
-            <select
-              v-model="birthYear"
-              class="w-full"
-            >
+          <div :class="{'is-danger border-red-600': $v.form.dob.$invalid}" class="select w-full">
+            <select v-model="birthYear" class="w-full">
               <option disabled>
                 {{ lang.edit_profile.year }}
               </option>
-              <option
-                v-for="i in years"
-                :value="i"
-                :key="i"
-              >{{ i }}</option>
+              <option v-for="i in years" :value="i" :key="i">
+                {{ i }}
+              </option>
             </select>
           </div>
         </div>
@@ -147,9 +107,7 @@
       <p
         v-if="$v.form.dob.$invalid"
         class="help is-danger pl-2 text-xs text-red-500"
-      >
-        {{ lang.edit_profile.minimum_age_error }}
-      </p>
+      >{{ lang.edit_profile.minimum_age_error }}</p>
     </div>
 
     <!-- Buttons -->
@@ -160,16 +118,12 @@
             :disabled="$v.$invalid"
             type="submit"
             class="button is-secondary inline-block w-full sm:w-72 mb-4 py-2 px-10 rounded-full bg-secondary hover:bg-green-500 hover:border-green-500 focus:outline-none focus:shadow-outline active:bg-green-dark text-white text-2xl font-semibold shadow-md"
-          >
-            {{ lang.edit_profile.save }}
-          </button>
+          >{{ lang.edit_profile.save }}</button>
           <RouterLink
             :to="{ name: 'parent-dashboard' }"
             tag="button"
             class="inline-block w-full sm:w-72 py-2 px-10 rounded-full bg-white border border-grey hover:border-grey-light focus:outline-none focus:shadow-outline text-2xl text-grey-dark font-semibold shadow-md"
-          >
-            {{ lang.edit_profile.cancel }}
-          </RouterLink>
+          >{{ lang.edit_profile.cancel }}</RouterLink>
         </div>
       </div>
     </div>
@@ -181,7 +135,11 @@ import ChangePasswordModal from '@/components/ChangePasswordModal';
 import SaveSuccessModal from '@/components/SaveSuccessModal';
 import { range } from 'lodash';
 import { required, email } from 'vuelidate/lib/validators';
-import { notBooster, meetsMinimumAge, isPhone } from '@/utilities/customValidators';
+import {
+  notBooster,
+  meetsMinimumAge,
+  isPhone,
+} from '@/utilities/customValidators';
 import { mask } from 'vue-the-mask';
 
 export default {
@@ -195,7 +153,7 @@ export default {
       default: null,
     },
   },
-  data () {
+  data() {
     return {
       test: null,
       focused: false,
@@ -261,17 +219,17 @@ export default {
     };
   },
   computed: {
-    lang () {
+    lang() {
       return this.$store.state.lang;
     },
-    years () {
-      return range((new Date()).getFullYear(), 1927, -1);
+    years() {
+      return range(new Date().getFullYear(), 1927, -1);
     },
     birthDay: {
-      get () {
+      get() {
         return this.form.dob.split('-')[2];
       },
-      set (value) {
+      set(value) {
         let parts = this.form.dob.split('-');
         parts[2] = value;
         let dob = parts.join('-');
@@ -279,10 +237,10 @@ export default {
       },
     },
     birthMonth: {
-      get () {
+      get() {
         return this.form.dob.split('-')[1];
       },
-      set (value) {
+      set(value) {
         let parts = this.form.dob.split('-');
         parts[1] = value;
         let dob = parts.join('-');
@@ -290,17 +248,17 @@ export default {
       },
     },
     birthYear: {
-      get () {
+      get() {
         return parseInt(this.form.dob.split('-')[0]);
       },
-      set (value) {
+      set(value) {
         let parts = this.form.dob.split('-');
         parts[0] = value;
         let dob = parts.join('-');
         this.form = Object.assign({}, this.form, { dob });
       },
     },
-    tooltipOptions () {
+    tooltipOptions() {
       return {
         classes: ['info'],
         content: this.lang.edit_profile.tooltip,
@@ -309,7 +267,7 @@ export default {
       };
     },
   },
-  mounted () {
+  mounted() {
     let { first_name, last_name, email, dob, phone } = this.user;
     this.form = { first_name, last_name, email, dob, phone };
   },
@@ -321,16 +279,15 @@ export default {
       phone: { required, isPhone },
       dob: { required, meetsMinimumAge },
     },
-
   },
   methods: {
-    padWithZero (day) {
+    padWithZero(day) {
       if (day < 10) {
         return `0${day}`;
       }
       return day;
     },
-    maxNumberOfDays (month, year) {
+    maxNumberOfDays(month, year) {
       if (month === 2) {
         if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
           return 29;
@@ -342,7 +299,7 @@ export default {
       }
       return 31;
     },
-    getSubmitData () {
+    getSubmitData() {
       return {
         first_name: this.form.first_name,
         last_name: this.form.last_name,
@@ -351,31 +308,40 @@ export default {
         dob: this.form.dob,
       };
     },
-    submit () {
+    submit() {
       this.$v.$touch();
       this.$forceUpdate();
 
       if (this.$v.$invalid) return;
 
       let submitData = this.getSubmitData();
-      axios.post('/v3/parent/update', submitData)
-        .then(response => {
-          // this.user = Object.assign({}, this.user, this.form);
-          this.$store.commit('UPDATE_USER', this.form);
+      axios.post('/v3/parent/update', submitData).then(response => {
+        // this.user = Object.assign({}, this.user, this.form);
+        this.$store.commit('UPDATE_USER', this.form);
 
-          this.$buefy.modal.open({
-            parent: this,
-            component: SaveSuccessModal,
-            scroll: 'keep',
-            hasModalCard: true,
-            canCancel: false,
-            props: {
-              title: this.lang.edit_profile.saved_successfully,
-            },
-          });
+        this.$buefy.modal.open({
+          parent: this,
+          component: SaveSuccessModal,
+          scroll: 'keep',
+          hasModalCard: true,
+          canCancel: false,
+          props: {
+            title: this.lang.edit_profile.saved_successfully,
+          },
         });
+
+        /**
+         * Success event.
+         *
+         * @event success
+         * @property {object} example the demo example
+         */
+        this.$emit('success', {
+          demo: 'example',
+        });
+      });
     },
-    showChangePasswordModal () {
+    showChangePasswordModal() {
       this.addClass(document.querySelector('body'), 'modal-is-open');
 
       this.$buefy.modal.open({
@@ -388,10 +354,10 @@ export default {
         },
       });
     },
-    addClass (element, className) {
+    addClass(element, className) {
       element.classList.add(className);
     },
-    removeClass (element, className) {
+    removeClass(element, className) {
       element.classList.remove(className);
     },
   },
@@ -399,31 +365,31 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.blue-rounded select{
-    height: 30px;
-    width: 245px;
-    border: 1px solid rgba(0,0,0,0.1);
-    background-color: #2e86de;
-    color:#fff;
-    border-radius: 100px;
-    -webkit-appearance: none;
-    padding: 4px 12px;
+.blue-rounded select {
+  height: 30px;
+  width: 245px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #2e86de;
+  color: #fff;
+  border-radius: 100px;
+  -webkit-appearance: none;
+  padding: 4px 12px;
 }
-select option{
-    width:100%;
-    color:#495057;
-    background-color:#fff;
+select option {
+  width: 100%;
+  color: #495057;
+  background-color: #fff;
 }
 .blue-rounded select optgroup {
-    color: blue;
+  color: blue;
 }
-i{
-    color: #fff;
-    position:absolute;
-    top:10px;
-    right:15px;
+i {
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  right: 15px;
 }
 label {
-    margin-bottom: 0.25rem !important
+  margin-bottom: 0.25rem !important;
 }
 </style>

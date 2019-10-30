@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import Item from '../Item.vue'
+import Item from '../Item'
 
 describe('Item.vue', () => {
   test('renders item.url', () => {

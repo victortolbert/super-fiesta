@@ -46,6 +46,7 @@ const store = new Vuex.Store({
     minPasswordLength: 0,
     avatarPath: '',
     contacts: [],
+    activeTab: 0,
   },
   mutations: {
     SET_LANG (state, lang) {

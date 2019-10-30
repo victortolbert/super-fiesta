@@ -18,7 +18,7 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 
-import authUser from '../public/v3/api/auth/user.json'
+import authUser from '../public/v3/api/auth/user2.json'
 // import AppNavbar from '@/layouts/include/AppNavbar'
 import Quickview from '@/components/shared/patterns/Quickview'
 
@@ -48,10 +48,20 @@ export default {
 </script>
 <style>
 :root {
-  --color-primary: #2db564;
-  --color-secondary:#2e86de;
-  --color-tertiary: #ed8936;
-  --color-danger: #d32f2f;
+  --color-primary: #2db564;    /* titan default */
+  --color-secondary:#2e86de;   /* titan default */
+  --color-secondary: #6c757d;  /* bootstrap default */
+
+  --color-tertiary: #ed8936;   /* titan default */
+
+  --color-success: #28a745;   /* bootstrap default */
+  --color-danger: #dc3545;    /* bootstrap default */
+  --color-warning: #ffc107;   /* bootstrap default */
+  --color-info: #17a2b8;      /* bootstrap default */
+
+  --color-light: #f8f9fa;     /* bootstrap default */
+  --color-dark: #343a40;      /* bootstrap default */
+
   --color-modal-button: #d0021b;
   --color-facebook: #3B5998;
   --color-emailer: #00A6D9;
