@@ -69,7 +69,9 @@ module.exports = {
     },
     'style-resources-loader': {
       preProcessor: 'scss',
-      patterns: [],
+      patterns: [
+        resolve(__dirname, 'src/assets/css/shared/abstracts/*.scss'),
+      ],
     },
   },
 }
