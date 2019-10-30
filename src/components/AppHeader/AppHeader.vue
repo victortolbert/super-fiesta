@@ -58,11 +58,11 @@
 </template>
 
 <script>
-import PageHeader from '@/components/pattern/PageHeader';
-import ProgramHeader from '@/components/pattern/ProgramHeader';
-import NotificationsSidebarToggle from '@/components/pattern/NotificationsSidebarToggle';
-import MenuSidebarToggle from '@/components/pattern/MenuSidebarToggle';
-import EventInfo from '@/components/pattern/EventInfo';
+import PageHeader from '@/components/PageHeader';
+import ProgramHeader from '@/components/ProgramHeader';
+import NotificationsSidebarToggle from '@/components/NotificationsSidebarToggle';
+import MenuSidebarToggle from '@/components/MenuSidebarToggle';
+import EventInfo from '@/components/EventInfo';
 
 export default {
   name: 'AppHeader',

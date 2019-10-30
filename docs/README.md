@@ -1,34 +1,30 @@
-Hello
+## ⭐️ Features
 
-# Directory Structure
+- Laravel 6.0
+- Vue + VueRouter + Vuex + VueI18n + ESlint
+- Pages with dynamic import and custom layouts
+- Login, register, email verification and password reset
+- Authentication with JWT
+- Socialite integration
+- Bootstrap 4 + Font Awesome 5
 
-VuePress follows the principle of **"Convention is better than configuration"**, the recommended document structure is as follows:
+---
 
-<!-- textlint-disable terminology -->
+- ☐ Add `$axios` to `Vue.prototype`
+- ☐ Fix added colors
+- jest
+- tailwindcss
+- vue-cli-3
+- vue-i18n
+- vue-meta
+- vuex
+- vue-router
 
-::: vue
-.
-├── docs
-│   ├── .vuepress _(**Optional**)_
-│   │   ├── `components` _(**Optional**)_
-│   │   ├── `theme` _(**Optional**)_
-│   │   │   └── Layout.vue
-│   │   ├── `public` _(**Optional**)_
-│   │   ├── `styles` _(**Optional**)_
-│   │   │   ├── index.styl
-│   │   │   └── palette.styl
-│   │   ├── `templates` _(**Optional, Danger Zone**)_
-│   │   │   ├── dev.html
-│   │   │   └── ssr.html
-│   │   ├── `config.js` _(**Optional**)_
-│   │   └── `enhanceApp.js` _(**Optional**)_
-│   │
-│   ├── README.md
-│   ├── guide
-│   │   └── README.md
-│   └── config.md
-│
-└── package.json
-:::
 
-<!-- textlint-enable -->
+## 🚀 Get Started
+
+## Project setup
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+

@@ -67,11 +67,9 @@ module.exports = {
       localeDir: 'locales',
       enableInSFC: true,
     },
-    // 'style-resources-loader': {
-    //   preProcessor: 'scss',
-    //   patterns: [
-    //     resolve(__dirname, 'src/assets/css/shared/abstracts/*.scss'),
-    //   ],
-    // },
+    'style-resources-loader': {
+      preProcessor: 'scss',
+      patterns: [],
+    },
   },
 }

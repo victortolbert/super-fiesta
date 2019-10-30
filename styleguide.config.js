@@ -1,80 +1,84 @@
-const { join, resolve, dirname } = require('path')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const packageConfig = require('./package.json')
+const { join } = require('path')
 
 module.exports = {
-  renderRootJsx: join(__dirname, 'config/styleguide.root.js'),
-  // require: [path.join(__dirname, 'styleguide/global.requires.js')]
-  // set your styleguidist configuration here
-  title: 'Titan Style Guide',
-  components: [
-    'src/components/BusinessLeaderboard/*.vue',
-    'src/components/EventInfo/*.vue',
-    'src/components/HowToGetPledges/*.vue',
-  ],
-  ignore: [
-    '**/*.spec.vue',
-    '**/components/**/patterns/*.vue',
-    '**/components/**/shared/*.vue',
-    '**/components/Button.vue',
-  ],
-  defaultExample: true,
-  require: ['./router-mock.js'],
+  title: 'Titan Frontier',
+  version: packageConfig.version,
+  // components: './src/components/**/*.vue',
+  renderRootJsx: join(__dirname, './config/styleguide.root.js'),
+  assetsDir: join(__dirname, './public'),
   ribbon: {
-    text: 'Back to examples',
-    url: 'https://vue-styleguidist.github.io/Examples.html',
+    text: 'Back to Docs',
+    url: 'http://titan.victortolbert.com/',
   },
-  template: {
-    head: {
-      links: [
+  usageMode: 'expand',
+  exampleMode: 'expand',
+  codeSplit: true,
+  copyCodeButton: true,
+  editorConfig: {
+    theme: 'night',
+  },
+  pagePerSection: false,
+  sections: [
+    {
+      name: 'Getting Started',
+      content: './docs/readme.md',
+      sectionDepth: 1,
+      exampleMode: 'hide',
+      usageMode: 'hide',
+    },
+    {
+      name: 'Components',
+      sections: [
         {
-          rel: 'stylesheet',
-          href:
-            'https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css',
-          integrity: 'your hash here',
-          crossorigin: 'anonymous',
+          name: 'Base',
+          components: () => [
+            './src/components/BaseAvatar/BaseAvatar.vue',
+            './src/components/BaseButton/BaseButton.vue',
+            './src/components/BaseIcon/BaseIcon.vue',
+            './src/components/BaseInput/BaseInput.vue',
+          ],
+          exampleMode: 'collapse', // 'hide' | 'collapse' | 'expand'
+          usageMode: 'collapse', // 'hide' | 'collapse' | 'expand'
         },
         {
-          rel: 'stylesheet',
-          href:
-            'https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css',
-          integrity: 'your hash here',
-          crossorigin: 'anonymous',
+          name: 'Layout',
+          components: () => [
+            './src/components/AppHeader/AppHeader.vue',
+            './src/components/AppNav/AppNav.vue',
+            './src/components/AppFooter/AppFooter.vue',
+          ],
+          exampleMode: 'collapse', // 'hide' | 'collapse' | 'expand'
+          usageMode: 'collapse', // 'hide' | 'collapse' | 'expand'
+        },
+        {
+          name: 'Other',
+          components: () => [
+            './src/components/Colors/Colors.vue',
+            './src/components/Icons/Icons.vue',
+            './src/components/LoadingOverlay/LoadingOverlay.vue',
+            './src/components/UsaMap/UsaMap.vue',
+          ],
+          exampleMode: 'collapse', // 'hide' | 'collapse' | 'expand'
+          usageMode: 'collapse', // 'hide' | 'collapse' | 'expand'
         },
       ],
+      sectionDepth: 0,
     },
-  },
-  // sections: [
-  //   {
-  //     name: 'First Section',
-  //     components: 'src/components/**/[A-Z]*.vue'
-  //   }
-  // ],
-  // theme: {
-  //   color: {
-  //     link: 'firebrick',
-  //     linkHover: 'salmon',
-  //   },
-  //   fontFamily: {
-  //     base: '"Operator Mono", "Source Sans Pro", "Comic Sans MS", "Comic Sans", cursive',
-  //   },
-  // },
-  // styles: {
-  //   Logo: {
-  //     logo: {
-  //       animation: 'blink ease-in-out 300ms infinite',
-  //     },
-  //     '@keyframes blink': {
-  //       to: { opacity: 0 },
-  //     },
-  //   },
-  // },
-  webpackConfig: {
-    // custom config goes here
-    module: {
+    // {
+    //   name: 'Base',
+    //   content: './docs/components.md',
+    //   components: './src/components/**/[A-Z]*.vue',
+    //   exampleMode: 'expand',
+    //   usageMode: 'expand',
+    //   sectionDepth: 2
+    // },
+    {
+      name: 'Downloads',
+      content: './docs/downloads.md',
+      exampleMode: 'hide',
+      usageMode: 'hide',
+      sectionDepth: 1,
     },
-    plugins: [],
-    resolve: {
-      symlinks: true,
-    },
-  },
+  ],
 }
