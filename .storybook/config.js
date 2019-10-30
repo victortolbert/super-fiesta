@@ -4,6 +4,7 @@ import {addDecorator, addParameters, configure } from '@storybook/vue';
 import { withA11y } from '@storybook/addon-a11y';
 
 import 'storybook-chromatic';
+import '../public/assets/css/tailwind.css'
 
 // import '../src/index.css';
 // from NPM modules

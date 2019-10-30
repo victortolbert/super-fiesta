@@ -3,8 +3,12 @@
     <button
       v-on="$listeners"
       v-bind="$attrs"
-      class="button leading-none block w-full mx-auto max-w-xs py-2 px-12 rounded-full hover:shadow-lg"
-      :class="classObject"
+      class="leading-none block mx-auto max-w-xs border hover:shadow-lg focus:outline-none focus:shadow-outline"
+      :class="[
+        isFullWidth ? 'w-full' : 'px-8',
+        isSmall ? 'text-sm font-medium py-2' : 'text-lg font-semibold py-4',
+        classObject
+      ]"
     >
       <slot />
     </button>
@@ -23,11 +27,30 @@ export default {
       type: Boolean,
       default: false,
     },
+    isSecondary: {
+      type: Boolean,
+      default: false,
+    },
+    isRounded: {
+      type: Boolean,
+      default: true,
+    },
+    isFullWidth: {
+      type: Boolean,
+      default: true,
+    },
+    isSmall: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     classObject () {
       return {
-        'text-lg font-semibold bg-green-600 hover:bg-green-700 text-green-100 hover:text-white': this.isPrimary,
+        'text-sm': this.isSmall,
+        'rounded-full': this.isRounded,
+        'bg-green-600 hover:bg-green-700 text-green-100 hover:text-white': this.isPrimary,
+        'bg-blue-600 hover:bg-blue-700 text-blue-100 hover:text-white': this.isSecondary,
       }
     },
   },

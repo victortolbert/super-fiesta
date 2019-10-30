@@ -1,5 +1,5 @@
 <template>
-  <BaseButton>
+  <BaseButton is-primary>
     <slot>Default Pledge Button Text</slot>
   </BaseButton>
 </template>
