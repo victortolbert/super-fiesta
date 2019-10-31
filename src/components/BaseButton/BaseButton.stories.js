@@ -4,25 +4,28 @@ export default {
   title: 'BaseButton',
 }
 
-export const withText = () => '<BaseButton>with text</BaseButton>'
-
-export const withEmoji = () => '<BaseButton>😀 😎 👍 💯</BaseButton>'
-export const withBaseAvatar = () => '<BaseButton><BaseAvatar /></BaseButton>'
-
-export const asAComponent = () => ({
+export const isDefault = () => ({
+  components: { BaseButton },
+  template: `<BaseButton>Default</BaseButton>`,
+})
+export const isPrimary = () => ({
   components: { BaseButton },
   template: `
-  <div class="flex flex-col items-center">
-    <!-- <BaseButton is-primary :is-rounded="false">Primary Not Rounded</BaseButton> -->
-    <BaseButton is-primary>Primary Button</BaseButton>
-    <BaseButton
-      is-secondary
-      is-small
-      :is-full-width="false"
-    >
-      Small Secondary Button
-    </BaseButton>
-    <BaseButton is-secondary>Secondary Button</BaseButton>
-  </div>
+    <div class="flex flex-col">
+      <BaseButton is-primary>Primary</BaseButton>
+      <BaseButton is-primary is-small>Small</BaseButton>
+      <BaseButton is-primary is-full-width>Full Width</BaseButton>
+    </div>
+  `,
+})
+
+export const isSecondary = () => ({
+  components: { BaseButton },
+  template: `
+    <div class="flex flex-col">
+      <BaseButton is-secondary>Secondary</BaseButton>
+      <BaseButton is-secondary is-small>Small</BaseButton>
+      <BaseButton is-secondary is-full-width>Full Width</BaseButton>
+    </div>
   `,
 })

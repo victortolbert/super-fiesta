@@ -3,7 +3,16 @@
     <button
       v-on="$listeners"
       v-bind="$attrs"
-      class="leading-none block mx-auto max-w-xs border hover:shadow-lg focus:outline-none focus:shadow-outline"
+      class="
+        leading-none
+        block
+        mx-auto
+        max-w-xs
+        border
+        hover:shadow-lg
+        focus:outline-none
+        focus:shadow-outline
+      "
       :class="[
         isFullWidth ? 'w-full' : 'px-8',
         isSmall ? 'text-sm font-medium py-2' : 'text-lg font-semibold py-4',
@@ -37,7 +46,7 @@ export default {
     },
     isFullWidth: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     isSmall: {
       type: Boolean,
