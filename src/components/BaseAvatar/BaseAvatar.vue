@@ -7,6 +7,13 @@
 </template>
 
 <script>
+import imageFile from '../../../public/avatar.svg';
+
+const image = {
+  src: imageFile,
+  alt: 'my image',
+};
+
 export default {
   name: 'BaseAvatar',
   status: 'prototype',
@@ -14,11 +21,11 @@ export default {
   props: {
     alt: {
       type: String,
-      default: '',
+      default: image.alt,
     },
     src: {
       type: String,
-      default: 'avatar.svg',
+      default: image.src,
     },
   },
 }

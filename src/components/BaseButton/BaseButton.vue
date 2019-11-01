@@ -3,19 +3,21 @@
     <button
       v-on="$listeners"
       v-bind="$attrs"
+      @click="onClick"
+      @dblclick="onDoubleClick"
       class="
         leading-none
         block
         mx-auto
         max-w-xs
-        border
+        border-2
         hover:shadow-lg
         focus:outline-none
         focus:shadow-outline
       "
       :class="[
         isFullWidth ? 'w-full' : 'px-8',
-        isSmall ? 'text-sm font-medium py-2' : 'text-lg font-semibold py-4',
+        isSmall ? 'text-sm font-medium py-1' : 'font-semibold py-2',
         classObject
       ]"
     >
@@ -48,6 +50,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    isDestructive: {
+      type: Boolean,
+      default: false,
+    },
     isSmall: {
       type: Boolean,
       default: false,
@@ -58,9 +64,28 @@ export default {
       return {
         'text-sm': this.isSmall,
         'rounded-full': this.isRounded,
+        'bg-red-600 hover:bg-red-700 text-red-100 hover:text-white': this.isDestructive,
         'bg-green-600 hover:bg-green-700 text-green-100 hover:text-white': this.isPrimary,
         'bg-blue-600 hover:bg-blue-700 text-blue-100 hover:text-white': this.isSecondary,
       }
+    },
+  },
+  methods: {
+    onClick($event) {
+      /**
+       * Emitted when the button is clicked.
+       * @event click
+       * @type {Event}
+       */
+      this.$emit('click', $event);
+    },
+    onDoubleClick($event) {
+      /**
+       * Emitted when the button is double clicked.
+       * @event doubleClick
+       * @type {Event}
+       */
+      this.$emit('double-click', $event);
     },
   },
 }

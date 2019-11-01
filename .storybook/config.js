@@ -2,9 +2,14 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import {addDecorator, addParameters, configure } from '@storybook/vue';
 import { withA11y } from '@storybook/addon-a11y';
+// import centered from '@storybook/addon-centered/vue';
 
-import 'storybook-chromatic';
+// import { themes } from '@storybook/theming';
+// import newTheme from './newTheme';
+
+import i18n from '../src/i18n'
 import '../public/assets/css/tailwind.css'
+import '../src/plugins/fontawesome'
 
 // import '../src/index.css';
 // from NPM modules
@@ -18,6 +23,7 @@ import '../public/assets/css/tailwind.css'
 // import { GlobalStyle } from '../src/shared/global';
 
 // Import your global components.
+import BaseButton from '../src/components/BaseButton/BaseButton.vue';
 import BaseAvatar from '../src/components/BaseAvatar/BaseAvatar.vue';
 
 // Option defaults:
@@ -95,7 +101,15 @@ addParameters({
   },
 });
 
-addDecorator(withA11y);
+
+// addDecorator(centered);
+// addDecorator(withA11y);
+addDecorator(() => ({
+  i18n,
+  withA11y,
+  template: '<story />'
+}))
+
 // addDecorator(story => (
 //   <>
 //     <GlobalStyle />
@@ -108,6 +122,7 @@ Vue.use(Vuex);
 
 // Register global components.
 Vue.component('BaseAvatar', BaseAvatar);
+Vue.component('BaseButton', BaseButton);
 
 
 // automatically import all files ending in *.stories.js|mdx

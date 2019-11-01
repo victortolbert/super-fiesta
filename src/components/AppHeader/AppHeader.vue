@@ -1,12 +1,24 @@
 <template>
-  <div class="relative mb-16">
-    <header class="app-header p-8 bg-blue-700 text-white bg-cover bg-center">
-      <div class="max-w-4xl mx-auto flex items-center justify-between w-full">
-        <slot>Default Slot</slot>
+  <header class="app-header relative flex sm:h-24 md:h-32 lg:h-40 xl:h-48 mb-16 text-white bg-blue-700 bg-cover bg-center items-center">
+    <div class="container flex items-center justify-between w-full mx-auto p-4 sm:p-6">
+      <slot>
+        Default Header
+      </slot>
+      <div class="flex">
+        <button
+          ref="openButton"
+          type="button"
+          class="inline-block text-white focus:outline-none focus:text-white"
+          aria-label="Menu"
+        >
+          <FontAwesomeIcon
+            :icon="['far', 'bars']"
+            class="fa-2x text-white"
+          />
+        </button>
       </div>
-    </header>
-  </div>
-
+    </div>
+  </header>
 </template>
 
 <script>
@@ -39,8 +51,21 @@ export default {
   },
   data () {
     return {
-      menuOpened: false,
+      isOpen: false,
     };
   },
 };
 </script>
+
+<style lang="scss">
+$theme-header-light-color: #027ed7;
+$theme-header-dark-color: #02098a;
+
+.app-header {
+  background-image: linear-gradient(
+    180deg,
+    rgba($theme-header-light-color, 0.8) -13.75%,
+    rgba($theme-header-dark-color, 0.8) 114.33%
+  ), url('/v3-assets/dashboard/images/header_bg.jpg')
+}
+</style>
