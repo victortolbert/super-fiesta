@@ -44,6 +44,7 @@ module.exports = {
   },
 
   configureWebpack: {
+    devtool: 'source-map',
     plugins: [
       new webpack.DefinePlugin({
         API_BASE_URL: JSON.stringify('//base-url.test'),

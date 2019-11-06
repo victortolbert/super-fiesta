@@ -1,6 +1,7 @@
 <template>
   <div>
     <header
+      v-scroll="handleScroll"
       class="app-header text-blue-100 shadow fixed w-full h-16 sm:h-20 md:h-24 lg:h-32 px-6 bg-cover bg-center z-20"
     >
       <!-- max-w-6xl py-8 px-8 lg:px-0 -->
@@ -272,8 +273,13 @@
 </template>
 
 <script>
+import Scroll from '@/directives/scroll'
+
 export default {
   name: 'AppHeader4',
+  directives: {
+    Scroll,
+  },
   props: {
     program: {
       type: Object,
@@ -282,42 +288,40 @@ export default {
       }),
     },
   },
-  data: function() {
-    return {
-      isOpen: false,
-      isDropdownOpen: false,
-      navItems: [
-        {
-          path: '/',
-          name: 'Home',
-        },
-        {
-          path: '/dashboard',
-          name: 'Parent Dashboard',
-        },
-        {
-          path: '/dashboard/public',
-          name: 'Public Dashboard',
-        },
-        {
-          path: '/dashboard/teacher',
-          name: 'Teacher Dashboard',
-        },
-        {
-          path: '/easy-emailer',
-          name: 'Easy Emailer',
-        },
-        {
-          path: '/edit-participant',
-          name: 'Edit Participant',
-        },
-        {
-          path: '/edit-profile',
-          name: 'Edit Profile',
-        },
-      ],
-    };
-  },
+  data: () => ({
+    isOpen: false,
+    isDropdownOpen: false,
+    navItems: [
+      {
+        path: '/',
+        name: 'Home',
+      },
+      {
+        path: '/dashboard',
+        name: 'Parent Dashboard',
+      },
+      {
+        path: '/dashboard/public',
+        name: 'Public Dashboard',
+      },
+      {
+        path: '/dashboard/teacher',
+        name: 'Teacher Dashboard',
+      },
+      {
+        path: '/easy-emailer',
+        name: 'Easy Emailer',
+      },
+      {
+        path: '/edit-participant',
+        name: 'Edit Participant',
+      },
+      {
+        path: '/edit-profile',
+        name: 'Edit Profile',
+      },
+    ],
+  }),
   watch: {
     isOpen: {
       immediate: true,
@@ -383,12 +387,25 @@ export default {
     toggle() {
       this.isOpen = !this.isOpen;
     },
+    handleScroll (evt, el) {
+      // if (window.scrollY > 50) {
+      //   el.setAttribute(
+      //     'style',
+      //     'opacity: 1; transform: translate3d(0, -50px, 0)'
+      //   )
+      // }
+      // return window.scrollY > 100
+    },
   },
 };
 </script>
 
 <style>
 .app-header {
+  transform: translateZ(0);
+  perspective: 1000px;
+  backface-visibility: hidden;
+  transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
   background-image: linear-gradient(
       rgba(2, 127, 215, 0.9),
       rgba(2, 8, 138, 0.8)
