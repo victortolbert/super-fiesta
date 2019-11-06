@@ -1,13 +1,15 @@
 <template>
   <div>
+    <!-- h-16 sm:h-20 md:h-24 lg:h-32  -->
     <header
       v-scroll="handleScroll"
-      class="app-header text-blue-100 shadow fixed w-full h-16 sm:h-20 md:h-24 lg:h-32 px-6 bg-cover bg-center z-20"
+      class="app-header text-blue-100 shadow fixed w-full px-6 bg-cover bg-center z-20"
     >
       <!-- max-w-6xl py-8 px-8 lg:px-0 -->
 
       <nav class="relative flex flex-wrap items-center h-full justify-between max-w-6xl mx-auto">
-        <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+        <!-- text-xl sm:text-2xl md:text-3xl lg:text-4xl -->
+        <h1 class="">
           <slot />
         </h1>
         <div class>
@@ -176,7 +178,7 @@
       </nav>
 
       <!-- Off-canvas Menu -->
-      <div class>
+      <div class="text-base">
         <transition
           enter-class="opacity-0"
           enter-active-class="ease-out transition-medium"
@@ -388,13 +390,11 @@ export default {
       this.isOpen = !this.isOpen;
     },
     handleScroll (evt, el) {
-      // if (window.scrollY > 50) {
-      //   el.setAttribute(
-      //     'style',
-      //     'opacity: 1; transform: translate3d(0, -50px, 0)'
-      //   )
-      // }
-      // return window.scrollY > 100
+      if (window.scrollY > 50) {
+        el.classList.add('shrink')
+      } else {
+        el.classList.remove('shrink')
+      }
     },
   },
 };
@@ -402,10 +402,12 @@ export default {
 
 <style>
 .app-header {
-  transform: translateZ(0);
+  /* transform: translateZ(0);
   perspective: 1000px;
   backface-visibility: hidden;
-  transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1); */
+  @apply py-10 text-4xl;
+  transition: all 0.4s ease-in-out;
   background-image: linear-gradient(
       rgba(2, 127, 215, 0.9),
       rgba(2, 8, 138, 0.8)
@@ -414,6 +416,10 @@ export default {
 }
 .is-active {
   @apply underline text-blue-600 font-bold;
+}
+
+.shrink {
+  @apply py-4 text-2xl;
 }
 
 /* .site-header {

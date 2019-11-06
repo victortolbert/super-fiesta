@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import ProgramOverview from '@/components/ProgramOverview';
+// import ProgramOverview from '@/components/ProgramOverview';
 import SchoolGoalAndStats from '@/components/SchoolGoalAndStats';
 import HowToGetPledges from '@/components/HowToGetPledges';
 import StudentStarVideo from '@/components/StudentStarVideo';
@@ -39,7 +39,7 @@ export default {
   status: 'prototype',
   version: '1.0.0',
   components: {
-    ProgramOverview,
+    // ProgramOverview,
     SchoolGoalAndStats,
     HowToGetPledges,
     StudentStarVideo,
@@ -55,11 +55,11 @@ export default {
   data () {
     return {
       items: [
-        {
-          name: 'ProgramOverview',
-          title: 'Program Overview',
-          isOpen: this.isDesktop(),
-        },
+        // {
+        //   name: 'ProgramOverview',
+        //   title: 'Program Overview',
+        //   isOpen: this.isDesktop(),
+        // },
         {
           name: 'SchoolGoalAndStats',
           title: 'School Goal and Stats',
