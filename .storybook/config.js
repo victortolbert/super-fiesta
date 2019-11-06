@@ -1,7 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import '@fortawesome/fontawesome-pro/css/all.css'
+
 import Vue from 'vue';
 import Vuex from 'vuex';
 import {addDecorator, addParameters, configure } from '@storybook/vue';
 import { withA11y } from '@storybook/addon-a11y';
+import { withInfo } from 'storybook-addon-vue-info'
+import { addReadme } from 'storybook-readme/vue';
+
 // import centered from '@storybook/addon-centered/vue';
 
 // import { themes } from '@storybook/theming';
@@ -99,11 +105,19 @@ addParameters({
     inlineStories: true,
     iframeHeight: '60px',
   },
+  a11y: {
+    // ... axe options
+    element: '#root', // optional selector which element to inspect
+    config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
+    options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
+  },
 });
 
 
 // addDecorator(centered);
 // addDecorator(withA11y);
+addDecorator(withInfo);
+addDecorator(addReadme);
 addDecorator(() => ({
   i18n,
   withA11y,

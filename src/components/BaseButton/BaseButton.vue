@@ -155,4 +155,20 @@ export default {
 .button.-icon-center {
   /* padding: 0 20px; */
 }
+button {
+  --bs-color: rgba(0,0,0,0.1);
+  box-shadow: inset 0 -2px 5px var(--bs-color);
+}
+button:focus {
+  --bs-color: rgba(0,0,0,0.6);
+}
+
+button {
+  --opacity: 0.1;
+  --bs-color: rgba(0,0,0,var(--opacity));
+  box-shadow: inset 0 -2px 5px var(--bs-color);
+}
+button:focus {
+  --opacity: 0.6;
+}
 </style>

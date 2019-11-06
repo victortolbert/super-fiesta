@@ -1,0 +1,18 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import BaseDropdown from './BaseDropdown'
+
+<Meta title="Base|Dropdown" />
+
+# Dropdown
+
+With `Dropdown` ...
+
+<Preview>
+  <Story name="openDropdown">
+    {{
+        mounted() { this.$nextTick(() => this.$refs.dropdown.open = true) },
+        components: { BaseDropdown },
+        template: `<BaseDropdown ref="dropdown" />`
+    }}
+  </Story>
+</Preview>

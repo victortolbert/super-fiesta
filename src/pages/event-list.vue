@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <h1>Events for {{ user.user.name }}</h1>

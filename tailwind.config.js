@@ -37,6 +37,9 @@ module.exports = {
         'serif',
       ],
       mono: [
+        'Dank Mono',
+        'Operator Mono',
+        'Victor Mono',
         'Menlo',
         'Monaco',
         'Consolas',
