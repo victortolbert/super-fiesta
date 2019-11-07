@@ -101,9 +101,9 @@ export default new Router({
       component: () => import(/* webpackChunkName: "edit-participant" */ '@/pages/edit-participant.vue'),
     },
     {
-      path: '/edit-profile',
-      name: 'edit-profile',
-      component: () => import(/* webpackChunkName: "edit-profile" */ '@/pages/edit-profile.vue'),
+      path: '/inbox',
+      name: 'inbox',
+      component: () => import(/* webpackChunkName: "inbox" */ '@/pages/inbox.vue'),
     },
     {
       path: '/event/list',
@@ -152,6 +152,11 @@ export default new Router({
       path: '/network-issue',
       name: 'network-issue',
       component: () => import(/* webpackChunkName: "network-issue" */ '@/pages/network-issue.vue'),
+    },
+    {
+      path: '/inbox',
+      name: 'inbox',
+      component: () => import(/* webpackChunkName: "inbox" */ '@/pages/inbox.vue'),
     },
     {
       path: '*',
