@@ -84,7 +84,7 @@ describe('ParticipantRewards', () => {
         starts_at,
         ends_at,
         quantity,
-      }
+      },
     );
   };
 });

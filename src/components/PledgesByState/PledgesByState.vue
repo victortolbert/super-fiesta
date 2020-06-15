@@ -91,7 +91,7 @@ export default {
         this.$store.state.participant.participants
           .flatMap(participant => participant.participant_info.pledges)
           .filter(pledge => includedStatuses.includes(pledge.pledge_status_id))
-          .map(pledge => pledge.pledge_sponsor.state)
+          .map(pledge => pledge.pledge_sponsor.state),
       );
     },
     myPledgedCountries () {
@@ -105,7 +105,7 @@ export default {
             }
             return '';
           }).filter(country => !!country);
-        })
+        }),
       );
     },
     myPledgedPlaces () {

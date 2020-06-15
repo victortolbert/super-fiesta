@@ -15,8 +15,7 @@ module.exports = {
     'gtag': true,
   },
   'extends': [
-    'plugin:vue/recommended',
-    '@vue/standard',
+    'plugin:vue/essential',
   ],
   'rules': {
     'arrow-parens': 'off',

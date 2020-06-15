@@ -168,7 +168,7 @@ export default {
         .post(
           '/v3/password/change',
           formData,
-          {headers: {'Content-Type': 'multipart/form-data'}}
+          {headers: {'Content-Type': 'multipart/form-data'}},
         )
         .then(response => {
           this.fields = {};

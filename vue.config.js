@@ -29,7 +29,7 @@ module.exports = {
     // we add them here to avoid errors
     const vueBrowserCompilerPath = resolve(
       dirname(require.resolve('vue-inbrowser-compiler')),
-      '../'
+      '../',
     )
 
     const eslintRule = config.module.rule('eslint')

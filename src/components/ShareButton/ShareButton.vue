@@ -120,7 +120,7 @@ export default {
           is_are: isAre,
           event_name: eventName,
           share_url: this.getShareUrl(referrerName),
-        }
+        },
       )
       return 'sms:?&body=' + smsBody.replace(/&/g, 'and')
     },

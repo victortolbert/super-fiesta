@@ -139,7 +139,7 @@ library.add(
   faUser,
   faUserEdit,
   faUserPlus,
-  farUserEdit
+  farUserEdit,
 );
 
 dom.watch();

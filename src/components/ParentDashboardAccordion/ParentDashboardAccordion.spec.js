@@ -126,7 +126,7 @@ describe('ParentDashboardAccordion', () => {
       {
         id: id,
         family_pledge_id: familyPledgeId,
-      }
+      },
     );
   };
 });

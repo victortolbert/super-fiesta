@@ -165,7 +165,7 @@ export default {
           }
           return totals;
         },
-        { low: 0, high: 0 }
+        { low: 0, high: 0 },
       );
       let totalsString = totals.low;
       if (totals.low !== totals.high) {

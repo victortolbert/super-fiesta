@@ -109,7 +109,7 @@ describe('SchoolGoalAndStats', () => {
 
     let classroomChunks = wrapper.vm.getClassroomChunks(
       program.participants,
-      classrooms
+      classrooms,
     );
 
     expect(classroomChunks[0][0].id).toBe(1);

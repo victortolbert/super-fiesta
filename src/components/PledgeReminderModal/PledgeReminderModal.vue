@@ -143,7 +143,7 @@ export default {
         .post(
           '/v3/pledge/reminder/' + this.pledgeId,
           {},
-          { headers: { 'Content-Type': 'multipart/form-data' } }
+          { headers: { 'Content-Type': 'multipart/form-data' } },
         )
         .then((response) => {
           this.fields = {}

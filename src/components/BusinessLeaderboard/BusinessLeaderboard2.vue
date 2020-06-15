@@ -82,7 +82,7 @@ export default {
         this.lang.business_leaderboard_heading_1,
         {
           event_name: this.program.name,
-        }
+        },
       );
     },
     hasSponsors () {
